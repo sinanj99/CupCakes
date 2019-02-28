@@ -43,7 +43,6 @@ public class FrontController extends HttpServlet {
         }
 
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
             
         try {
                 user = LoginController.getUser(username);
