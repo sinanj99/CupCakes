@@ -30,7 +30,7 @@ public class UserDAO {
             ResultSet rs = statement.executeQuery(query);
 
             if (rs.next()) {
-                username_ = rs.getString("ID");
+                username_ = rs.getString("username");
                 password = rs.getString("password");
                 balance = rs.getFloat("balance");
             }
@@ -43,7 +43,7 @@ public class UserDAO {
             DBConnector conn = new DBConnector();
             Statement statement = conn.getConnection().createStatement();
             String query
-                    = "INSERT INTO user(name, password, balance) "
+                    = "INSERT INTO user(username, password, balance) "
                     + "VALUES ('"+ name + "', '" + password + "', " + balance + ");";
             statement.executeUpdate(query);
 

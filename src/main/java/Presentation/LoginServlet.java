@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.User;
 import Data.UserDAO;
 import Logic.LoginController;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,6 +37,13 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        User user = null;
+        //User user = (User) request.getSession().getAttribute("user");
+        if (request.getSession().getAttribute("user") != null) {
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/default");
+            dispatcher.forward(request, response);
+        }
+        
         String buttonPressed = request.getParameter("button");
         boolean userValid = false;
         
@@ -44,8 +53,11 @@ public class LoginServlet extends HttpServlet {
             String password = request.getParameter("password");
             
             if (LoginController.isValid(username, password)) {
+                user = LoginController.getUser(username);
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
                 userValid = true;
-                RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("default");
+                RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/default");
                 dispatcher.forward(request, response);
             }
         }

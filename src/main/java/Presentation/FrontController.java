@@ -38,16 +38,13 @@ public class FrontController extends HttpServlet {
 
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("default");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/LoginServlet");
             dispatcher.forward(request, response);
         }
 
         String username = request.getParameter("username");
             
         try {
-                user = LoginController.getUser(username);
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
                 Command c = Command.from(request);
                 c.execute(request, response);
 
