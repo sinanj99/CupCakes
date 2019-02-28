@@ -32,26 +32,40 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        if (LoginController.isValid(username, password)) {
-
-            response.setContentType("text/html;charset=UTF-8");
-            try (PrintWriter out = response.getWriter()) {
-                /* TODO output your page here. You may use following sample code. */
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet LoginServlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-                out.println("</body>");
-                out.println("</html>");
+        boolean containsParam =  request.getParameterMap().containsKey("username") &&
+                                 request.getParameterMap().containsKey("password");
+        if(containsParam){
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            if (LoginController.isValid(username, password)) {
+                
             }
         }
+
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LoginServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Log ind for at komme videre</h1>");
+            if(containsParam)out.println("Virker");
+            out.println("<form method=\"get\" action=\"\">");
+            out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
+                    + "type=\"text\" name=\"username\" placeholder=\"Brugernavn\"><br><br>");
+            out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
+                    + "type=\"text\" name=\"password\" placeholder=\"Adgangskode\"><br><br>");
+            out.println("<input style=\"border-radius: 3px; border: none; background-color: #35B4FF; color: #FFF; padding: 8px 10px;\" "
+                    + "type=\"submit\" value=\"Log ind\">");
+            out.println("</form>");
+            
+            out.println("</body>");
+            out.println("</html>");
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

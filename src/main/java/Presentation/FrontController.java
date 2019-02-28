@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author sinanjasar
  */
-@WebServlet(name = "FrontController", urlPatterns = {"/CupCakes"})
+@WebServlet(name = "FrontController", urlPatterns = {"/*"})
 public class FrontController extends HttpServlet {
 
     /**
@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet {
 
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/LoginServlet");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("default");
             dispatcher.forward(request, response);
         }
 

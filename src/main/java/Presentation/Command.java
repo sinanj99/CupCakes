@@ -20,7 +20,8 @@ public abstract class Command {
         Command c;
         String path = request.getPathInfo().substring(1);
         switch (path) {
-            case "login": c = new NewUserCommand(); break;
+            
+            case "default": c = new DefaultCommand(); break;
 //        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/LoginServlet");
 //        dispatcher.forward(request, response);
             default: c = new UnknownCommand();
