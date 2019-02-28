@@ -44,7 +44,7 @@ public class UserDAO {
             Statement statement = conn.getConnection().createStatement();
             String query
                     = "INSERT INTO user(name, password, balance) "
-                    + "VALUES ('"+ name + "', '" + password + "', '" + balance + "');";
+                    + "VALUES ('"+ name + "', '" + password + "', " + balance + ");";
             statement.executeUpdate(query);
 
         } catch (Exception e) {
