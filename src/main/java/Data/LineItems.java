@@ -11,5 +11,9 @@ package Data;
  */
 public class LineItems
 {
+    // for opgave 6
+    private int invoiceId;
+    
+    
     
 }

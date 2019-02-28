@@ -5,11 +5,13 @@
  */
 package Data;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Kasper Jeppesen
  */
 public class shoppingCart
 {
-    
+    ArrayList<LineItems> items;
 }
