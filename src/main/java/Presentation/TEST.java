@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.CupCakeDAO;
 import Data.UserDAO;
 
 /**
@@ -12,10 +13,8 @@ import Data.UserDAO;
  * @author Obaydah Mohamad
  */
 public class TEST {
-    public static void main(String[] args) {
-        UserDAO DAO = new UserDAO();
-        System.out.println(DAO.getUser("sne").getBalance());
-        DAO.insertUser("John", "JohnJohn", 1000000);
-        System.out.println(DAO.getUser("John").getBalance());
+    public static void main(String[] args) throws Exception {
+        System.out.println(CupCakeDAO.toppings());
+        
     }
 }

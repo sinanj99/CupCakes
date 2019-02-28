@@ -19,6 +19,11 @@ public class CupCake {
         this.cupCakeTopping = cupCakeTopping;
         this.cupCakeBottom = cupCakeButtom;
     }
+
+    @Override
+    public String toString() {
+        return "CupCake{" + "cupCakeTopping=" + cupCakeTopping + ", cupCakeBottom=" + cupCakeBottom + ", totalPrice=" + totalPrice + '}';
+    }
     
     
     

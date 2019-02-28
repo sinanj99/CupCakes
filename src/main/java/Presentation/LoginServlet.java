@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
         }
         
         String buttonPressed = request.getParameter("button");
+        
         boolean userValid = false;
         
         if(buttonPressed != null && buttonPressed.equals("login")){

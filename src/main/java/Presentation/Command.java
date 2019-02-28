@@ -22,8 +22,7 @@ public abstract class Command {
         switch (path) {
             
             case "default": c = new DefaultCommand(); break;
-//        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/LoginServlet");
-//        dispatcher.forward(request, response);
+            case "shop": c = new ShopCommand(); break;
             default: c = new UnknownCommand();
         }
         return c;

@@ -42,8 +42,6 @@ public class FrontController extends HttpServlet {
             dispatcher.forward(request, response);
         }
 
-        String username = request.getParameter("username");
-            
         try {
                 Command c = Command.from(request);
                 c.execute(request, response);

@@ -17,44 +17,54 @@ import java.sql.Statement;
  */
 public class CupCakeDAO {
     
-    private DBConnector con = null;
-    
-    public ArrayList<Topping> toppings() throws Exception{
-        ArrayList<Topping> toppingList = new ArrayList<>();
+    public static ArrayList<Topping> toppings() throws Exception{
+        
+        ArrayList<Topping> toppingList = new ArrayList();
+        int id = 0;
         String flavour = "";
         float price = 0;
         
-        con = new DBConnector();
+        try{
+        DBConnector con = new DBConnector();
         Connection connection = con.getConnection();
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT flavour, price FROM cupcakeTopping;");
         
         while(rs.next()){
-            flavour = rs.getString(2);
-            price = rs.getFloat(3); 
+            flavour = rs.getString("flavour");
+            price = rs.getFloat("price"); 
             
             toppingList.add(new Topping(price, flavour));
-        
+        }
+        }
+        catch(Exception e)
+        {
+            
         }
             return toppingList;
     }
     
-    public ArrayList<Bottom> bottoms() throws Exception{
-        ArrayList<Bottom> bottomList = new ArrayList<>();
+    public static ArrayList<Bottom> bottoms() throws Exception{
+        ArrayList<Bottom> bottomList = new ArrayList();
+        int id = 0;
         String flavour = "";
         float price = 0;
-        
-        con = new DBConnector();
+        try{
+        DBConnector con = new DBConnector();
         Connection connection = con.getConnection();
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT flavour, price FROM cupcakeBottom;");
         
         while(rs.next()){
-            flavour = rs.getString(2);
-            price = rs.getFloat(3); 
+            flavour = rs.getString("flavour");
+            price = rs.getFloat("price"); 
             
             bottomList.add(new Bottom(price, flavour));
-        
+        }
+        }
+        catch(Exception e)
+        {
+            
         }
             return bottomList;
     }
