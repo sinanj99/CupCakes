@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ This class accesses the database via statements and queries. 
+ getUser() selects all data on user with the passed username.
+ insertUser() inserts new user data to the user table.
  */
 package Data;
 
@@ -25,7 +25,7 @@ public class UserDAO {
             Statement statement = con.getConnection().createStatement();
             String query
                     = "SELECT * "
-                    + "FROM recipe "
+                    + "FROM user "
                     + "WHERE username = '" + username + "';";
             ResultSet rs = statement.executeQuery(query);
 
