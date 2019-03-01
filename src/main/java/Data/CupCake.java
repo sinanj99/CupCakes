@@ -20,16 +20,22 @@ public class CupCake {
         this.cupCakeBottom = cupCakeButtom;
         this.totalPrice = cupCakeTopping.getPrice() + cupCakeBottom.getPrice();
     }
+    
+
+    public Topping getCupCakeTopping() {
+        return cupCakeTopping;
+    }
+
+    public Bottom getCupCakeBottom() {
+        return cupCakeBottom;
+    }
+    
+    public float getTotalPrice() {
+        return totalPrice;
+    }    
 
     @Override
     public String toString() {
         return "CupCake{" + "cupCakeTopping=" + cupCakeTopping + ", cupCakeBottom=" + cupCakeBottom + ", totalPrice=" + totalPrice + '}';
     }
-
-    public float getTotalPrice() {
-        return totalPrice;
-    }
-    
-    
-    
 }

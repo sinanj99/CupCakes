@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Kasper Jeppesen
  */
-public class shoppingCart
+public class ShoppingCart
 {
     ArrayList<LineItems> items = new ArrayList<>();
 

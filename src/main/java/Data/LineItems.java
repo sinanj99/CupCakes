@@ -19,6 +19,15 @@ public class LineItems
         this.cup = selectedCupCake;
         this.quantity = quantity;
     }
+
+    public CupCake getCup() {
+        return cup;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+    
     
     
     
