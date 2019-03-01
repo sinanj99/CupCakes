@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -22,6 +23,10 @@ public class DefaultCommand extends Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/CupCakesProject/LoginServlet");
+        }
+        User user = (User) request.getSession().getAttribute("user");
         try (PrintWriter out = response.getWriter()) {
                     /* TODO output your page here. You may use following sample code. */
                     out.println("<!DOCTYPE html>");
@@ -30,7 +35,13 @@ public class DefaultCommand extends Command {
                     out.println("<title>Default page</title>");
                     out.println("</head>");
                     out.println("<body>");
-                    out.println("<h1> Default page </h1>");
+                    out.println("<h1>Velkommen " + user.getUsername() + "</h1>");
+                    out.println("<b>Balance:</b> " + user.getBalance() + "<br>");
+                    out.println("<ul>");
+                    out.println("<li><a href=\"/CupCakesProject/shop\">Gå til shop</a></li>");
+                    out.println("<li><a href=\"/CupCakesProject/shop\">Mine ordre</a></li>");
+                    out.println("<li><a href=\"/CupCakesProject/shop\">Log ud</a></li>");
+                    out.println("</ul>");
                     out.println("</body>");
                     out.println("</html>");
                 }
