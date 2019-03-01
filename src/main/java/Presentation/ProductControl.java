@@ -26,11 +26,12 @@ public class ProductControl extends Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         String topping = request.getParameter("topping");
         String bottom = request.getParameter("bottom");
+        
         int qty = Integer.valueOf(request.getParameter("qty"));
-        List<Topping> toppings = new ArrayList();
-        List<Bottom> bottoms = new ArrayList();
+        
         Topping topping_ = null;
         Bottom bottom_ = null;
         
@@ -48,7 +49,7 @@ public class ProductControl extends Command {
         
         List<LineItems> s = new shoppingCart().getItems();
         
-        request.getSession().setAttribute("cart", s);
+        request.getSession().setAttribute("shoppingcart", s);
         
         s.add(l);
         
