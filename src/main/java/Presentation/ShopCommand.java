@@ -11,6 +11,8 @@ import Data.Topping;
 import Data.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,20 +40,66 @@ public class ShopCommand extends Command {
                     + " Balance: " + user.getBalance() + "</h1>");
             out.println("<h1>Bottoms: <br> </h1>");
 
-            try {
-                for (Bottom b : CupCakeDAO.bottoms()) {
-                    out.println("<p> Flavour: " + b.getFlavour() + "Price: " + b.getPrice() + "</p>");
+//            try {
+//                for (Bottom b : CupCakeDAO.bottoms()) {
+//                    out.println("<p> Flavour: " + b.getFlavour() + "Price: " + b.getPrice() + "</p>");
+//                }
+//                
+//                out.print("<h1>Toppings: <br><br> </h1>");
+//
+//                for (Topping b : CupCakeDAO.toppings()) {
+//                    out.println("<p> Flavour: " + b.getFlavour() + "Price: " + b.getPrice() + "</p>");
+//                }
+//
+//            } catch (Exception e) {
+//
+//            }
+            try
+            {
+                out.println("<table>");
+                
+                out.println("<tr>");
+                out.println("<th> Flavour " + "</th>" );
+                out.println("<th> Price " + "</th>");
+                out.println("</tr>");
+                
+                for(Bottom b : CupCakeDAO.bottoms())
+                {
+                    out.println("<tr>");
+                    out.println("<td>" + b.getFlavour() + "</td>");
+                    out.println("<td>" + b.getPrice() + "</td>");
+                    out.println("<td>");
                 }
                 
-                out.print("<h1>Toppings: <br><br> </h1>");
-
-                for (Topping b : CupCakeDAO.toppings()) {
-                    out.println("<p> Flavour: " + b.getFlavour() + "Price: " + b.getPrice() + "</p>");
+                out.println("</table>");
+                out.print("<h1>Tuppongs: <br><br> </h1>");
+                
+                out.println("<table>");
+                
+                out.println("<tr>");
+                out.println("<th> Flavour " + "</th>" );
+                out.println("<th> Price " + "</th>");
+                out.println("</tr>");
+                
+                for(Topping p : CupCakeDAO.toppings())
+                {
+                    out.println("<tr>");
+                    out.println("<td>" + p.getFlavour() + "</td>");
+                    out.println("<td>" + p.getPrice() + "</td>");
+                    out.println("<td>");
                 }
-
-            } catch (Exception e) {
-
+                
+                out.println("</table>");
+                
+                
             }
+            catch (Exception ex)
+            {
+                Logger.getLogger(ShopCommand.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       
+        
+            
             
             out.println("</body>");
             out.println("</html>");
