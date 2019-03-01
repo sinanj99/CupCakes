@@ -21,7 +21,7 @@ public class LineItems
         this.cup = selectedCupCake;
         this.quantity = quantity;
         
-        invoiceId++;
+        invoiceId++; //Skal først increases idet, der betales for ordren - derfor skal den ikke være her!!
     }
     
     
