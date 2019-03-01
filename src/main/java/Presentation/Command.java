@@ -20,7 +20,8 @@ public abstract class Command {
         Command c;
         String path = request.getPathInfo().substring(1);
         switch (path) {
-            case "": c = new DefaultCommand(); break;
+            case "": c = new DefaultCommand(); break;            
+            case "logout": c = new LogoutCommand(); break;
             case "default": c = new DefaultCommand(); break;
             case "shop": c = new ShopCommand(); break;
             default: c = new UnknownCommand();
