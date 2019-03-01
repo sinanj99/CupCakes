@@ -40,8 +40,7 @@ public class LoginServlet extends HttpServlet {
         User user = null;
         //User user = (User) request.getSession().getAttribute("user");
         if (request.getSession().getAttribute("user") != null) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/default");
-            dispatcher.forward(request, response);
+            response.sendRedirect("/CupCakesProject/default");
         }
         
         String buttonPressed = request.getParameter("button");
@@ -58,8 +57,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 userValid = true;
-                RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/default");
-                dispatcher.forward(request, response);
+                response.sendRedirect("/CupCakesProject/default");
             }
         }
         

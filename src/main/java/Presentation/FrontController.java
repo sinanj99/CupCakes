@@ -37,6 +37,7 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException {
 
         User user = (User) request.getSession().getAttribute("user");
+        
         if (user == null) {
             RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/LoginServlet");
             dispatcher.forward(request, response);
