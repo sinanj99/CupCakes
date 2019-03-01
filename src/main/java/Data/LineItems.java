@@ -11,8 +11,6 @@ package Data;
  */
 public class LineItems
 {
-    // for opgave 6
-    private static int invoiceId = 1;
     private CupCake cup;
     private int quantity;
     
@@ -20,8 +18,6 @@ public class LineItems
     {
         this.cup = selectedCupCake;
         this.quantity = quantity;
-        
-        invoiceId++; //Skal først increases idet, der betales for ordren - derfor skal den ikke være her!!
     }
     
     
