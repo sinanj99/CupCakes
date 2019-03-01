@@ -8,11 +8,11 @@ public class DBConnector {
 
     private Connection connection = null;
 	
-    private static final String IP = "sql7.freemysqlhosting.net";
+    private static final String IP = "157.230.97.70";
     private static final String PORT = "3306";
-    public static final String DATABASE = "sql7281157";
-    private static final String USERNAME = "sql7281157";
-    private static final String PASSWORD = "q9ZWu171A6";
+    public static final String DATABASE = "CupCakeDB";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "prespa01";
 
      public DBConnector() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
