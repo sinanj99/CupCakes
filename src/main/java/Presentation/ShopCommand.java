@@ -32,6 +32,24 @@ public class ShopCommand extends Command {
         if (request.getSession().getAttribute("shoppingcart") == null) {
             request.getSession().setAttribute("shoppingcart", new shoppingCart());
         }
+        
+        String buttonPressed = request.getParameter("button");
+        Topping cTop = null;
+        Bottom cBot = null;
+        if(buttonPressed != null && buttonPressed.equals("add")){
+            try {
+                String top = request.getParameter("top");
+                String bottom = request.getParameter("bottom");
+                String qty = request.getParameter("qty");
+                
+                cTop = CupCakeDAO.toppings().get(Integer.parseInt(top)-1);
+                cBot = CupCakeDAO.bottoms().get(Integer.parseInt(bottom)-1);
+                System.out.println(cTop.getFlavour() + " " +cTop.getPrice());
+                System.out.println(cBot.getFlavour()+ " " + cBot.getPrice());
+            } catch (Exception ex) {
+                Logger.getLogger(ShopCommand.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -41,20 +59,23 @@ public class ShopCommand extends Command {
             out.println("<title>Shop page</title>");
             out.println("</head>");
             out.println("<body>");
+            /*out.println(cTop.getFlavour() + " " + cTop.getPrice() + "<br>");
+            out.println(cBot.getFlavour() + " " + cBot.getPrice() + "<br>");*/
             out.println("<h1> User: " + user.getUsername()
                     + " Balance: " + user.getBalance() + "</h1>");
             out.println("<form action=\"\" method=\"get\">");
+            out.println("<input type=\"hidden\" name=\"button\" value=\"add\">");
             out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
-                    + "type=\"text\" name=\"topid\" placeholder=\"Top id\"><br><br>");
+                    + "type=\"text\" name=\"top\" placeholder=\"Top id\"><br><br>");
             out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
-                    + "type=\"text\" name=\"topid\" placeholder=\"Bund id\"><br><br>");
+                    + "type=\"text\" name=\"bottom\" placeholder=\"Bund id\"><br><br>");
             out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
-                    + "type=\"text\" name=\"topid\" placeholder=\"Antal\"><br><br>");
+                    + "type=\"text\" name=\"qty\" placeholder=\"Antal\"><br><br>");
             out.println("<input style=\"border-radius: 3px; border: none; background-color: #35B4FF; color: #FFF; padding: 8px 10px;\" "
                     + "type=\"submit\" value=\"Tilføj til kurv\">");
             out.println("</form>");
             
-            out.println("<h1>Bottoms: <br> </h1>");
+            out.println("<h1>Bottoms: <br></h1>");
 //            try {
 //                for (Bottom b : CupCakeDAO.bottoms()) {
 //                    out.println("<p> Flavour: " + b.getFlavour() + "Price: " + b.getPrice() + "</p>");
@@ -71,6 +92,7 @@ public class ShopCommand extends Command {
 //            }
             try
             {
+                out.print("<br><br>");
                 out.println("<table>");
                 
                 out.println("<tr>");
