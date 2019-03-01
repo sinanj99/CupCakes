@@ -61,6 +61,7 @@ public class ShopCommand extends Command {
             out.println("<body>");
             /*out.println(cTop.getFlavour() + " " + cTop.getPrice() + "<br>");
             out.println(cBot.getFlavour() + " " + cBot.getPrice() + "<br>");*/
+            out.println("<a href=\"/CupCakesProject/\">Tilbage til menu</a><br>");
             out.println("<h1> User: " + user.getUsername()
                     + " Balance: " + user.getBalance() + "</h1>");
             out.println("<form action=\"\" method=\"get\">");
