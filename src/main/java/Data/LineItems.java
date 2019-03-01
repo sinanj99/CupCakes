@@ -12,7 +12,17 @@ package Data;
 public class LineItems
 {
     // for opgave 6
-    private int invoiceId;
+    private static int invoiceId = 1;
+    private CupCake cup;
+    private int quantity;
+    
+    public LineItems (CupCake selectedCupCake, int quantity)
+    {
+        this.cup = selectedCupCake;
+        this.quantity = quantity;
+        
+        invoiceId++;
+    }
     
     
     
