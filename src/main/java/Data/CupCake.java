@@ -13,16 +13,21 @@ public class CupCake {
     
     private Topping cupCakeTopping;
     private Bottom cupCakeBottom;
-    private final float totalPrice = cupCakeTopping.getPrice() + cupCakeBottom.getPrice();
+    private final float totalPrice;
 
     public CupCake(Topping cupCakeTopping, Bottom cupCakeButtom) {
         this.cupCakeTopping = cupCakeTopping;
         this.cupCakeBottom = cupCakeButtom;
+        this.totalPrice = cupCakeTopping.getPrice() + cupCakeBottom.getPrice();
     }
 
     @Override
     public String toString() {
         return "CupCake{" + "cupCakeTopping=" + cupCakeTopping + ", cupCakeBottom=" + cupCakeBottom + ", totalPrice=" + totalPrice + '}';
+    }
+
+    public float getTotalPrice() {
+        return totalPrice;
     }
     
     

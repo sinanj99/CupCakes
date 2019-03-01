@@ -68,5 +68,27 @@ public class CupCakeDAO {
         }
             return bottomList;
     }
+    public static Topping getTopping(String flavour) throws Exception{
+        Topping topping = null;
+        for(Topping t : toppings())
+        {
+            if(t.getFlavour().equals(flavour))
+            {
+                topping = t;
+            }
+        }
+        return topping;
+    }
+    public static Bottom getBottom(String flavour) throws Exception{
+        Bottom bottom = null;
+        for(Bottom b : bottoms())
+        {
+            if(b.getFlavour().equals(flavour))
+            {
+                bottom = b;
+            }
+        }
+        return bottom;
+    }
     
 }
