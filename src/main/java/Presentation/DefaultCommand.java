@@ -40,7 +40,7 @@ public class DefaultCommand extends Command {
                     out.println("<ul>");
                     out.println("<li><a href=\"/CupCakesProject/shop\">Gå til shop</a></li>");
                     out.println("<li><a href=\"/CupCakesProject/shop\">Mine ordre</a></li>");
-                    out.println("<li><a href=\"/CupCakesProject/shop\">Log ud</a></li>");
+                    out.println("<li><a href=\"/CupCakesProject/logout\">Log ud</a></li>");
                     out.println("</ul>");
                     out.println("</body>");
                     out.println("</html>");
