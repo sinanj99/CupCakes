@@ -9,6 +9,7 @@ import Data.Bottom;
 import Data.CupCakeDAO;
 import Data.Topping;
 import Data.User;
+import Data.shoppingCart;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,6 +29,9 @@ public class ShopCommand extends Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         User user = (User) request.getSession().getAttribute("user");
+        if (request.getSession().getAttribute("shoppingcart") == null) {
+            request.getSession().setAttribute("shoppingcart", new shoppingCart());
+        }
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -38,8 +43,18 @@ public class ShopCommand extends Command {
             out.println("<body>");
             out.println("<h1> User: " + user.getUsername()
                     + " Balance: " + user.getBalance() + "</h1>");
+            out.println("<form action=\"\" method=\"get\">");
+            out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
+                    + "type=\"text\" name=\"topid\" placeholder=\"Top id\"><br><br>");
+            out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
+                    + "type=\"text\" name=\"topid\" placeholder=\"Bund id\"><br><br>");
+            out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
+                    + "type=\"text\" name=\"topid\" placeholder=\"Antal\"><br><br>");
+            out.println("<input style=\"border-radius: 3px; border: none; background-color: #35B4FF; color: #FFF; padding: 8px 10px;\" "
+                    + "type=\"submit\" value=\"Tilføj til kurv\">");
+            out.println("</form>");
+            
             out.println("<h1>Bottoms: <br> </h1>");
-
 //            try {
 //                for (Bottom b : CupCakeDAO.bottoms()) {
 //                    out.println("<p> Flavour: " + b.getFlavour() + "Price: " + b.getPrice() + "</p>");
@@ -63,12 +78,14 @@ public class ShopCommand extends Command {
                 out.println("<th> Price " + "</th>");
                 out.println("</tr>");
                 
+                int i = 1;
                 for(Bottom b : CupCakeDAO.bottoms())
                 {
-                    out.println("<tr>");
-                    out.println("<td>" + b.getFlavour() + "</td>");
+                    out.println("<tr id=\""+i+"\">");
+                    out.println("<td>" + i + ". " + b.getFlavour() + "</td>");
                     out.println("<td>" + b.getPrice() + "</td>");
-                    out.println("<td>");
+                    out.println("</tr>");
+                    i++;
                 }
                 
                 out.println("</table>");
@@ -81,12 +98,14 @@ public class ShopCommand extends Command {
                 out.println("<th> Price " + "</th>");
                 out.println("</tr>");
                 
+                int j = 1;
                 for(Topping p : CupCakeDAO.toppings())
                 {
-                    out.println("<tr>");
-                    out.println("<td>" + p.getFlavour() + "</td>");
+                    out.println("<tr id=\""+j+"\">");
+                    out.println("<td>" + j + ". " + p.getFlavour() + "</td>");
                     out.println("<td>" + p.getPrice() + "</td>");
-                    out.println("<td>");
+                    out.println("</tr>");
+                    j++;
                 }
                 
                 out.println("</table>");

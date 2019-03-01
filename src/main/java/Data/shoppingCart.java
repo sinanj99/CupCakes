@@ -13,5 +13,9 @@ import java.util.ArrayList;
  */
 public class shoppingCart
 {
-    ArrayList<LineItems> items;
+    ArrayList<LineItems> items = new ArrayList<>();
+
+    public ArrayList<LineItems> getItems() {
+        return items;
+    }
 }
