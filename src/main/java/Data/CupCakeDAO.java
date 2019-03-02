@@ -28,7 +28,7 @@ public class CupCakeDAO {
         DBConnector con = new DBConnector();
         Connection connection = con.getConnection();
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT flavour, price FROM cupcakeTopping;");
+        ResultSet rs = stmt.executeQuery("SELECT flavour, price FROM topping;");
         
         while(rs.next()){
             flavour = rs.getString("flavour");
@@ -53,7 +53,7 @@ public class CupCakeDAO {
         DBConnector con = new DBConnector();
         Connection connection = con.getConnection();
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT flavour, price FROM cupcakeBottom;");
+        ResultSet rs = stmt.executeQuery("SELECT flavour, price FROM bottom;");
         
         while(rs.next()){
             flavour = rs.getString("flavour");

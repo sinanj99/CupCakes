@@ -10,7 +10,7 @@ import Data.CupCake;
 import Data.CupCakeDAO;
 import Data.LineItems;
 import Data.Topping;
-import Data.shoppingCart;
+import Data.ShoppingCart;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class ProductControl extends Command {
         
         LineItems l = new LineItems(cup, qty);
         
-        List<LineItems> s = new shoppingCart().getItems();
+        List<LineItems> s = new ShoppingCart().getItems();
         
         request.getSession().setAttribute("shoppingcart", s);
         

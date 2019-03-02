@@ -6,10 +6,12 @@
 package Presentation;
 
 import Data.Bottom;
+import Data.CupCake;
 import Data.CupCakeDAO;
+import Data.LineItems;
 import Data.Topping;
 import Data.User;
-import Data.shoppingCart;
+import Data.ShoppingCart;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -30,7 +32,7 @@ public class ShopCommand extends Command {
 
         User user = (User) request.getSession().getAttribute("user");
         if (request.getSession().getAttribute("shoppingcart") == null) {
-            request.getSession().setAttribute("shoppingcart", new shoppingCart());
+            request.getSession().setAttribute("shoppingcart", new ShoppingCart());
         }
         
         String buttonPressed = request.getParameter("button");
@@ -42,10 +44,12 @@ public class ShopCommand extends Command {
                 String bottom = request.getParameter("bottom");
                 String qty = request.getParameter("qty");
                 
-                cTop = CupCakeDAO.toppings().get(Integer.parseInt(top)-1);
-                cBot = CupCakeDAO.bottoms().get(Integer.parseInt(bottom)-1);
-                System.out.println(cTop.getFlavour() + " " +cTop.getPrice());
-                System.out.println(cBot.getFlavour()+ " " + cBot.getPrice());
+                Topping top_ = CupCakeDAO.toppings().get(Integer.parseInt(top)-1);
+                Bottom bottom_ = CupCakeDAO.bottoms().get(Integer.parseInt(bottom)-1);
+                
+                ShoppingCart cart_ = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
+                cart_.getItems().add(new LineItems(new CupCake(top_, bottom_), Integer.parseInt(qty)));
+                request.getSession().setAttribute("shoppingcart", cart_);
             } catch (Exception ex) {
                 Logger.getLogger(ShopCommand.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -67,9 +71,9 @@ public class ShopCommand extends Command {
             out.println("<form action=\"\" method=\"get\">");
             out.println("<input type=\"hidden\" name=\"button\" value=\"add\">");
             out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
-                    + "type=\"text\" name=\"top\" placeholder=\"Top id\"><br><br>");
-            out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
                     + "type=\"text\" name=\"bottom\" placeholder=\"Bund id\"><br><br>");
+            out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
+                    + "type=\"text\" name=\"top\" placeholder=\"Top id\"><br><br>");
             out.println("<input style=\"width: 173px; height: 25px; padding: 5px; border: 1px solid #a1a1a1; border-radius: 3px;\" "
                     + "type=\"text\" name=\"qty\" placeholder=\"Antal\"><br><br>");
             out.println("<input style=\"border-radius: 3px; border: none; background-color: #35B4FF; color: #FFF; padding: 8px 10px;\" "
@@ -133,6 +137,30 @@ public class ShopCommand extends Command {
                 
                 out.println("</table>");
                 
+                ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
+                
+                out.println("<h4>Kurv</h4>");
+                out.println("<table border=\"1\">");
+                out.println("<tr>");
+                out.println("<th>Top</th>");
+                out.println("<th>Bund</th>");
+                out.println("<th>Antal</th>");
+                out.println("<th>Pris</th>");
+                float fullPrice = 0;
+                for(LineItems lt : cart.getItems()){
+                    
+                    float lineItemPrice = (lt.getCup().getCupCakeTopping().getPrice() + lt.getCup().getCupCakeBottom().getPrice()) * lt.getQuantity();
+                    fullPrice += lineItemPrice;
+                    out.println("<tr>");
+                    out.println("<td>" + lt.getCup().getCupCakeTopping().getFlavour() + "</td>");
+                    out.println("<td>" + lt.getCup().getCupCakeBottom().getFlavour() + "</td>");
+                    out.println("<td>" + lt.getQuantity() + "</td>");
+                    out.println("<td>" + lineItemPrice + "</td>");
+                    out.println("</tr>");
+                    
+                }
+                out.println("<tr><td colspan=\"4\"  align=\"center\">Total pris: " + fullPrice + "</td></tr>");
+                out.println("</tr>");
                 
             }
             catch (Exception ex)
