@@ -9,6 +9,7 @@ import DB.DBConnector;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,28 +17,36 @@ import java.util.logging.Logger;
  *
  * @author Kasper Jeppesen
  */
-public class shoppingCartDAO
-{
-    //Returntypen skal være????? ikke void ihvertfald
-    public void InvoiceAndLineItems()
-    {
-        try
-        {
+public class shoppingCartDAO {
+
+    public void insertOrder(User user, List<LineItems> lineitems) {
+        try {
+            int id = 0;
+            String name = "";
             DBConnector con = new DBConnector();
             Connection connection = con.getConnection();
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("insert statement is missing");
-            
-            while(rs.next())
-            {
-                //something here
+            ResultSet rs1 = null;
+
+            rs1 = stmt.executeQuery("INSERT INTO invoice(username) VALUES (" + user.getUsername() + ");");
+
+            while (rs1.next()) {
+                id = rs1.getInt("id");
+                name = rs1.getString("username");
             }
-            
-            
-        }
-        catch (Exception ex)
-        {
-            Logger.getLogger(shoppingCartDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+            ResultSet rs2 = null;
+            for (LineItems l : lineitems) {
+                String topping = l.getCup().getCupCakeTopping().getFlavour();
+                String bottom = l.getCup().getCupCakeBottom().getFlavour();
+                int qty = l.getQuantity();
+                float price = l.getCup().getTotalPrice() * l.getQuantity();
+                rs2 = stmt.executeQuery("INSERT INTO lineitems VALUES (" + id + "," + topping
+                        + "," + bottom + "," + qty + "," + price + ");");
+            }
+
+        } catch (Exception ex) {
+           
         }
     }
 }
