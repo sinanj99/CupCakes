@@ -6,6 +6,8 @@
 package Presentation;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,15 +20,20 @@ public abstract class Command {
     public abstract void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
     public static Command from(HttpServletRequest request) {
         Command c;
-        String path = request.getPathInfo().substring(1);
-        switch (path) {
-            case "": c = new DefaultCommand(); break;            
-            case "logout": c = new LogoutCommand(); break;
-            case "default": c = new DefaultCommand(); break;
-            case "shop": c = new ShopCommand(); break;
-            default: c = new UnknownCommand();
-        }
+        
+        String origin = request.getParameter("command");
+        
+        Map<String, Command> commands = new HashMap();
+        commands.put("shop", new ShopCommand());
+        commands.put("default", new DefaultCommand());
+        commands.put("logout", new LogoutCommand());
+        commands.put("login", new LoginCommand());
+        
+        c = commands.getOrDefault(origin, new UnknownCommand());
+        
         return c;
     }
+    
+    
 }
 

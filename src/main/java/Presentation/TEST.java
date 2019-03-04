@@ -5,8 +5,10 @@
  */
 package Presentation;
 
+import DB.DataSourceMysql;
 import Data.CupCakeDAO;
 import Data.UserDAO;
+import Mapper.UserMapper;
 
 /**
  *
@@ -14,7 +16,10 @@ import Data.UserDAO;
  */
 public class TEST {
     public static void main(String[] args) throws Exception {
-        System.out.println(CupCakeDAO.toppings());
+        
+        UserMapper.setDataSource(DataSourceMysql.getDataSource());
+        
+        System.out.println("GetUser: " + UserMapper.getUser("sne"));
         
     }
 }

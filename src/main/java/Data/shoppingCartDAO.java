@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Kasper Jeppesen
+ * @author Kasper Jeppesen & sinanjasar
  */
 public class shoppingCartDAO {
 

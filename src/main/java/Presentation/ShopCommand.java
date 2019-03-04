@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,10 +35,14 @@ public class ShopCommand extends Command {
         }
         
         String buttonPressed = request.getParameter("button");
+        
         Topping cTop = null;
         Bottom cBot = null;
+        
         if(buttonPressed != null && buttonPressed.equals("add")){
+           
             try {
+                
                 String top = request.getParameter("top");
                 String bottom = request.getParameter("bottom");
                 String qty = request.getParameter("qty");
@@ -49,7 +52,8 @@ public class ShopCommand extends Command {
                 
                 ShoppingCart cart_ = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
                 cart_.getItems().add(new LineItems(new CupCake(top_, bottom_), Integer.parseInt(qty)));
-                request.getSession().setAttribute("shoppingcart", cart_);
+
+                
             } catch (Exception ex) {
                 Logger.getLogger(ShopCommand.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -81,20 +85,7 @@ public class ShopCommand extends Command {
             out.println("</form>");
             
             out.println("<h1>Bottoms: <br></h1>");
-//            try {
-//                for (Bottom b : CupCakeDAO.bottoms()) {
-//                    out.println("<p> Flavour: " + b.getFlavour() + "Price: " + b.getPrice() + "</p>");
-//                }
-//                
-//                out.print("<h1>Toppings: <br><br> </h1>");
-//
-//                for (Topping b : CupCakeDAO.toppings()) {
-//                    out.println("<p> Flavour: " + b.getFlavour() + "Price: " + b.getPrice() + "</p>");
-//                }
-//
-//            } catch (Exception e) {
-//
-//            }
+
             try
             {
                 out.print("<br><br>");
@@ -146,6 +137,7 @@ public class ShopCommand extends Command {
                 out.println("<th>Bund</th>");
                 out.println("<th>Antal</th>");
                 out.println("<th>Pris</th>");
+                
                 float fullPrice = 0;
                 for(LineItems lt : cart.getItems()){
                     

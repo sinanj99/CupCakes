@@ -19,7 +19,7 @@ public class LogoutCommand extends Command{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().removeAttribute("user");
-        response.sendRedirect("/CupCakesProject/LoginServlet");
+        response.sendRedirect("/CupCakesProject/login");
     }
     
 }
