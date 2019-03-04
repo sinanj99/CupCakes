@@ -29,6 +29,9 @@ public class ShopCommand extends Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        
+    
 
         User user = (User) request.getSession().getAttribute("user");
         if (request.getSession().getAttribute("shoppingcart") == null) {
