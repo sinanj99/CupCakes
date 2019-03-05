@@ -27,6 +27,7 @@ public abstract class Command {
         commands.put("shop", new ShopCommand());
         commands.put("default", new DefaultCommand());
         commands.put("logout", new LogoutCommand());
+        commands.put("register", new RegisterCommand());
         commands.put("login", new LoginCommand());
         
         c = commands.getOrDefault(origin, new UnknownCommand());
