@@ -17,9 +17,7 @@ import Mapper.UserMapper;
 public class TEST {
     public static void main(String[] args) throws Exception {
         
-        UserMapper.setDataSource(DataSourceMysql.getDataSource());
         
-        System.out.println("GetUser: " + UserMapper.getUser("sne"));
         
     }
 }

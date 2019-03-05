@@ -30,21 +30,14 @@ public class ShopCommand extends Command {
         if (request.getSession().getAttribute("shoppingcart") == null) {
             request.getSession().setAttribute("shoppingcart", new ShoppingCart());
         }
-
-//        String buttonPressed = request.getParameter("button");
-//        
-//        Topping cTop = null;
-//        Bottom cBot = null;
-//        
-//        if(buttonPressed != null && buttonPressed.equals("add")){
-//           
+        
         if (request.getParameterMap().containsKey("add")) {
             try {
-                String top = request.getParameter("topping");
+                String topping = request.getParameter("topping");
                 String bottom = request.getParameter("bottom");
                 String qty = request.getParameter("qty");
 
-                Topping top_ = CupCakeDAO.getTopping(top);
+                Topping top_ = CupCakeDAO.getTopping(topping);
                 Bottom bottom_ = CupCakeDAO.getBottom(bottom);
 
                 ShoppingCart cart_ = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
@@ -62,6 +55,7 @@ public class ShopCommand extends Command {
         }
     }
 }
+//
 //
 //        try (PrintWriter out = response.getWriter()) {
 //            /* TODO output your page here. You may use following sample code. */
@@ -172,4 +166,4 @@ public class ShopCommand extends Command {
 //        }
 //    }
 //
-//}
+//
