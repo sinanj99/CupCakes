@@ -21,6 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author sinanjasar
  */
+
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController/*"})
 public class FrontController extends HttpServlet {
 
