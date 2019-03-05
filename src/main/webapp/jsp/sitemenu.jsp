@@ -15,7 +15,7 @@
         %>
         	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/FrontController?command=logout">Log ude</a></li>
         	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/myorders.jsp">Mine ordre</a></li>
-        	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/login.jsp">G&aring; til shop</a></li>
+        	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/products.jsp">G&aring; til shop</a></li>
         <%
         	}else{
         %>
