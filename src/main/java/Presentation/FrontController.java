@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author sinanjasar
  */
-@WebServlet(name = "FrontController", urlPatterns = {"/*"})
+@WebServlet(name = "FrontController", urlPatterns = {"/FrontController/*"})
 public class FrontController extends HttpServlet {
 
     /**
@@ -34,32 +34,12 @@ public class FrontController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        User user = (User) request.getSession().getAttribute("user");
-
-        if (user == null) {
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login");
-            dispatcher.forward(request, response);
-        }
-
         try {
             Command c = Command.from(request);
             c.execute(request, response);
 
         } catch (Exception e) {
-            response.setContentType("text/html;charset=UTF-8");
-            try (PrintWriter out = response.getWriter()) {
-                /* TODO output your page here. You may use following sample code. */
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet LoginServlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1> Error </h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }
+            e.printStackTrace();
         }
     }
 
