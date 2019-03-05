@@ -36,7 +36,6 @@
                     }
                 %>
             </select>
-            <input type="number" value="qty" name="qty" required placeholder="Antal ...">
             <h1>Toppings</h1>
             <select required name="topping">
                 <%
@@ -48,14 +47,18 @@
                     }
                 %>
             </select>
-            <input type="number" value="qty" name="qty" required placeholder="Antal ..."><br><br>
+            
+            <br><br><input type="number" value="qty" name="qty" min="0" required placeholder="Antal ..."><br><br>
+            
             <input type="submit" value="Tilføj til kurv" name="add">
-            <input type="submit" value="Betal" name="checkout">
+            
             <input type="hidden" name="command" value="shop">
             <%
             %>
         </form>
-        <%            if (request.getSession().getAttribute("shoppingcart") != null) {
+        <%            
+                float fullPrice = 0;
+                if (request.getSession().getAttribute("shoppingcart") != null) {
                 ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
         %>
         <h4>Kurv</h4>
@@ -65,22 +68,29 @@
                 <th>Bund</th>
                 <th>Antal</th>
                 <th>Pris</th>
-
-                <%
-                    float fullPrice = 0;
-                    for (LineItems lt : cart.getItems()) {
-                        float lineItemPrice = (lt.getCup().getCupCakeTopping().getPrice() + lt.getCup().getCupCakeBottom().getPrice()) * lt.getQuantity();
-                        fullPrice += lineItemPrice;
-                %>
+            </tr>
+            <%
+                for (LineItems lt : cart.getItems()) {
+                    float lineItemPrice = (lt.getCup().getCupCakeTopping().getPrice() + lt.getCup().getCupCakeBottom().getPrice()) * lt.getQuantity();
+                    fullPrice += lineItemPrice;
+            %>
             <tr>
                 <td><%=lt.getCup().getCupCakeTopping().getFlavour()%></td>
                 <td><%=lt.getCup().getCupCakeBottom().getFlavour()%></td>
                 <td><%=lt.getQuantity()%></td>
                 <td><%=lineItemPrice%></td>
             </tr>
-            <% }%>
+            <%  }%>
             <tr><td colspan="4" align="center">Total pris: <%= fullPrice%> </td></tr>
-            <% }
-            %>
+
+        </table><br>
+        <form method="get" action="FrontController">
+            <input type="submit" value="Placér ordre" name="checkout">
+            <input type="hidden" name="command" value="checkout">
+        </form>
+        <%
+            }
+        %>
+
     </body>
 </html>

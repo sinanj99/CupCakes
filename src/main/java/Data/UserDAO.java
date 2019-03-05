@@ -50,4 +50,17 @@ public class UserDAO {
         } catch (Exception e) {
         }
     }
+    public static void setBalance(String username, float balance)
+    {
+        try {
+            DBConnector conn = new DBConnector();
+            Statement statement = conn.getConnection().createStatement();
+            String query
+                    = "UPDATE user SET balance = " 
+                    + balance + " WHERE username = '" + username + "';" ;
+            statement.executeUpdate(query);
+
+        } catch (Exception e) {
+        }
+    }
 }

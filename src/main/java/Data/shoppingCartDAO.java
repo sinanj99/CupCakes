@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class shoppingCartDAO {
 
-    public void insertOrder(User user, List<LineItems> lineitems) {
+    public static void insertOrder(User user, List<LineItems> lineitems) {
         try {
             int id = 0;
             String name = "";
