@@ -9,6 +9,7 @@ import DB.DBConnector;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -99,5 +100,32 @@ public class OrdersDAO {
             e.printStackTrace();
         }       
         return lineitems;
+    }
+    public static List<Order> getAllOrders()
+    {
+        List<Order> orders = new ArrayList();
+        String username = null;
+        String dateplaced = null;
+        int id = 0;
+        
+        try {
+            DBConnector con = new DBConnector();
+            Statement statement = con.getConnection().createStatement();
+            String query
+                    = "SELECT * "
+                    + "FROM invoice;";
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                id = rs.getInt("id");
+                username = rs.getString("username");
+                dateplaced = rs.getString("dateplaced");
+                orders.add(new Order(id, username, dateplaced));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }       
+        return orders;
+        
     }
 }

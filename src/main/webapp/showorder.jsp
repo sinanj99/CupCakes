@@ -14,7 +14,9 @@
     if(user == null) response.sendRedirect("/CupCakesProject/login.jsp");
     int orderId = Integer.parseInt(request.getParameter("id"));
     Order order = OrdersDAO.getOrder(orderId);
+    if(user.getIsAdmin() == 0){
     if(!order.getUsername().equals(user.getUsername())) response.sendRedirect("/CupCakesProject/myorders.jsp");
+    }
 %>
 <!DOCTYPE html>
 <jsp:include page='/jsp/sitehead.jsp'></jsp:include>

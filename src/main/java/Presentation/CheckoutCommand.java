@@ -23,7 +23,6 @@ public class CheckoutCommand extends Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("4325");
         User user = (User) request.getSession().getAttribute("user");
         System.out.println(user.getUsername());
         ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
