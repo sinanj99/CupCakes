@@ -18,7 +18,7 @@ import javax.sql.DataSource;
  * @author sinanjasar
  */
 public class UserMapper {
-
+/*
     private static DataBaseConnector dbc = new DataBaseConnector();
 
     public static void setDataSource(DataSource ds) {
@@ -66,5 +66,5 @@ public class UserMapper {
             e.printStackTrace();
         }
     }
-
+*/
 }
