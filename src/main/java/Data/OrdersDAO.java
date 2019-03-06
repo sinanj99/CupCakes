@@ -42,6 +42,7 @@ public class OrdersDAO {
     }
     
     public static Order getOrder(int id) {
+        ArrayList<LineItems> lineitems = new ArrayList<LineItems>();
         Order order = null;
         int orderId = 0;
         String username_ = "";
@@ -60,7 +61,7 @@ public class OrdersDAO {
                 orderId = rs.getInt("id");
                 username_ = rs.getString("username");
                 datePlaced = rs.getString("dateplaced");
-                order = new Order(orderId, username_, datePlaced);
+                order = new Order(orderId, username_, datePlaced, getOrderDetails(orderId));
             }
         } catch (Exception e) {
             e.printStackTrace();

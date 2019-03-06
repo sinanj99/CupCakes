@@ -15,12 +15,19 @@ public class Order {
     private final int id;
     private String username;
     private String datePlaced;
-    private ArrayList<CupCake> lineitems = new ArrayList<CupCake>();
+    private ArrayList<LineItems> lineitems = new ArrayList<LineItems>();
 
     public Order(int id, String username, String datePlaced) {
         this.id = id;
         this.username = username;
         this.datePlaced = datePlaced;
+    }    
+    
+    public Order(int id, String username, String datePlaced, ArrayList<LineItems> lineitems) {
+        this.id = id;
+        this.username = username;
+        this.datePlaced = datePlaced;
+        this.lineitems = lineitems;
     }
 
     public int getId() {
