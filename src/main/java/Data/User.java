@@ -7,13 +7,14 @@ package Data;
  *
  * @author sinanjasar
  */
+
 public class User {
     private String username;
     private String password;
     private float balance;
-    private Enum isAdmin;
+    private int isAdmin;
 
-    public User(String username, String password, float balance, Enum isAdmin) {
+    public User(String username, String password, float balance, int isAdmin) {
         this.username = username;
         this.password = password;
         this.balance = balance;
@@ -32,7 +33,7 @@ public class User {
         return balance;
     }
 
-    public Enum getIsAdmin() {
+    public int getIsAdmin() {
         return isAdmin;
     }
     

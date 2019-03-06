@@ -5,10 +5,8 @@
  */
 package Mapper;
 
-import DB.DBConnector;
 import DB.DataBaseConnector;
 import Data.Topping;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
