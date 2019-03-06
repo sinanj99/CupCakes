@@ -24,13 +24,14 @@ public class shoppingCartDAO {
 
     public static void insertOrder(User user, List<LineItems> lineitems) {
         try {
+            
             String name = "";
             DBConnector con = new DBConnector();
             Connection connection = con.getConnection();
             Statement stmt = connection.createStatement(); 
             String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
-            stmt.executeUpdate("INSERT INTO invoice(username, dateplaced) VALUES (" + user.getUsername() + ", " + timeStamp + ");");
+            stmt.executeUpdate("INSERT INTO invoice(username, dateplaced) VALUES ('" + user.getUsername() + "', '" + timeStamp + "');");
             
             
             for (LineItems l : lineitems) {
@@ -43,7 +44,7 @@ public class shoppingCartDAO {
             }
 
         } catch (Exception ex) {
-           
+           ex.printStackTrace();
         }
     }
 }
