@@ -23,7 +23,8 @@ public class AddMoneyComand extends Command {
         User user = (User) request.getSession().getAttribute("user");
         String balance = request.getParameter("newbalance");
         UserDAO.setBalance(user.getUsername(), Float.parseFloat(balance));
-        user.setBalance(Float.parseFloat(balance));
+        user.setBalance(Float.parseFloat(balance)+user.getBalance());
+        request.getRequestDispatcher("products.jsp").forward(request, response);
     }
     
 }

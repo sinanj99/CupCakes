@@ -11,11 +11,14 @@ public class User {
     private String username;
     private String password;
     private float balance;
+    private Enum isAdmin;
+    private Enum isCustomer;
 
-    public User(String username, String password, float balance) {
+    public User(String username, String password, float balance, Enum isCustomer) {
         this.username = username;
         this.password = password;
         this.balance = balance;
+        this.isCustomer = isCustomer;
     }
 
     public String getUsername() {
@@ -28,6 +31,14 @@ public class User {
 
     public float getBalance() {
         return balance;
+    }
+
+    public Enum getIsCustomer() {
+        return isCustomer;
+    }
+    
+    public void setBalance(float balance) {
+        this.balance = balance;
     }
     
 }

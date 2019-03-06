@@ -13,9 +13,9 @@
         <%
             if(user != null){
         %>
-        	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/FrontController?command=logout">Log ude</a></li>
+        	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/FrontController?command=logout">Log ud</a></li>
         	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/myorders.jsp">Mine ordre</a></li>
-        	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/products.jsp">G&aring; til shop</a></li>
+        	<li class="top-nav-li top-nav-li-right"><a href="/CupCakesProject/products.jsp">Gå til shop</a></li>
                 <li class="top-nav-li top-nav-li-right"><p>Din balance er: <%= user.getBalance() %><p></li>
                 <li class="top-nav-li top-nav-li-right"><p>Hej <%= user.getUsername() + "!" %><p></li>
         <%

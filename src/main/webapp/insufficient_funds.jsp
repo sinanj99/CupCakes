@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:include page='/jsp/sitehead.jsp'></jsp:include>
+<jsp:include page='/jsp/sitemenu.jsp'></jsp:include>
 <!DOCTYPE html>
 <html>
     <head>
