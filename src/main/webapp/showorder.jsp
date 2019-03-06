@@ -11,14 +11,17 @@
 <% 
     User user = (User) session.getAttribute("user");
     if(user == null) response.sendRedirect("/CupCakesProject/login.jsp");
-    String orderId = request.getParameter("id"); 
+    int orderId = Integer.parseInt(request.getParameter("id"));
+    Order order = OrdersDAO.getOrder(orderId);
+    if(!order.getUsername().equals(user.getUsername())) response.sendRedirect("/CupCakesProject/myorders.jsp");
 %>
 <!DOCTYPE html>
 <jsp:include page='/jsp/sitehead.jsp'></jsp:include>
 <jsp:include page='/jsp/sitemenu.jsp'></jsp:include>
 <!--Body Start-->
 
-<h1>Vis ordre</h1>
+<h1>Ordre <%= order.getId() %></h1>
+
 
 <!--Body End-->
 <jsp:include page='/jsp/sitefoot.jsp'></jsp:include>

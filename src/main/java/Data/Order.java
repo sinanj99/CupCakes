@@ -41,10 +41,4 @@ public class Order {
     public String getDatePlaced() {
         return datePlaced;
     }
-
-    public ArrayList<CupCake> getLineitems() {
-        return lineitems;
-    }
-    
-    
 }
