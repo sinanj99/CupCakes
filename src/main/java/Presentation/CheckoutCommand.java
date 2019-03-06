@@ -39,6 +39,7 @@ public class CheckoutCommand extends Command {
             shoppingCartDAO.insertOrder(user, cart.getItems());
             float newBalance = user.getBalance() - fullPrice;
             UserDAO.setBalance(user.getUsername(), newBalance);
+            user.setBalance(newBalance);
         }
 
     }

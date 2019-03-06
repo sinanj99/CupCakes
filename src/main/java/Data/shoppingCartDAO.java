@@ -9,6 +9,9 @@ import DB.DBConnector;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,28 +24,22 @@ public class shoppingCartDAO {
 
     public static void insertOrder(User user, List<LineItems> lineitems) {
         try {
-            int id = 0;
             String name = "";
             DBConnector con = new DBConnector();
             Connection connection = con.getConnection();
-            Statement stmt = connection.createStatement();
-            ResultSet rs1 = null;
+            Statement stmt = connection.createStatement(); 
+            String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
-            rs1 = stmt.executeQuery("INSERT INTO invoice(username) VALUES (" + user.getUsername() + ");");
-
-            while (rs1.next()) {
-                id = rs1.getInt("id");
-                name = rs1.getString("username");
-            }
-
-            ResultSet rs2 = null;
+            stmt.executeUpdate("INSERT INTO invoice(username, dateplaced) VALUES (" + user.getUsername() + ", " + timeStamp + ");");
+            
+            
             for (LineItems l : lineitems) {
                 String topping = l.getCup().getCupCakeTopping().getFlavour();
                 String bottom = l.getCup().getCupCakeBottom().getFlavour();
                 int qty = l.getQuantity();
                 float price = l.getCup().getTotalPrice() * l.getQuantity();
-                rs2 = stmt.executeQuery("INSERT INTO lineitems VALUES (" + id + "," + topping
-                        + "," + bottom + "," + qty + "," + price + ");");
+                stmt.executeUpdate("INSERT INTO lineitem VALUES ((SELECT id FROM invoice ORDER BY id DESC LIMIT 1), '" +
+                                    topping + "', '" + bottom + "', " + qty + " , " + price + ");");
             }
 
         } catch (Exception ex) {
