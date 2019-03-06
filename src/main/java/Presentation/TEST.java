@@ -26,12 +26,12 @@ import java.util.List;
 
 public class TEST {
     public static void main(String[] args) throws Exception {
-        User user = UserDAO.getUser("test");
-        Bottom bottom = CupCakeDAO.getBottom("Ajvar");
-        Topping topping = CupCakeDAO.getTopping("Blueberry");
-        LineItems lt = new LineItems(new CupCake(topping, bottom), 4);
-        List<LineItems> list = new ArrayList();
-        list.add(lt);
-        shoppingCartDAO.insertOrder(user, list);
+//        User user = UserDAO.getUser("test");
+//        Bottom bottom = CupCakeDAO.getBottom("Ajvar");
+//        Topping topping = CupCakeDAO.getTopping("Blueberry");
+//        LineItems lt = new LineItems(new CupCake(topping, bottom), 4);
+//        List<LineItems> list = new ArrayList();
+//        list.add(lt);
+//        shoppingCartDAO.insertOrder(user, list);
     }
 }

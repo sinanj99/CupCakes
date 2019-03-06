@@ -9,6 +9,7 @@ import Data.User;
 import Data.UserDAO;
 import Logic.LoginController;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,19 +24,24 @@ public class RegisterCommand extends Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        
+
         User user = (User) session.getAttribute("user");
-        
-        if(user != null){
+
+        if (user != null) {
             response.sendRedirect("/CupCakesProject/index.jsp");
-        }else{
+        } else {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
-            UserDAO.insertUser(username, password, 0);
-            session.setAttribute("user", user);
-            response.sendRedirect("/CupCakesProject/index.jsp");
+            if (LoginController.duplicate(username)) {
+                request.getSession().setAttribute("registerResult", "registerDuplicate");
+                RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+                rd.forward(request, response);
+            } else {
+                UserDAO.insertUser(username, password, 0);
+                response.sendRedirect("/CupCakesProject/index.jsp");
+            }
         }
     }
-    
+
 }
