@@ -41,7 +41,7 @@ a{
   float: right;
 }
 
-.top-nav-li:hover{
+.top-nav-li-hover:hover{
   background-color: #2d92ff;
 }
 
