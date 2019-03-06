@@ -22,7 +22,7 @@
 <!--Body Start-->
 
 <h1>Ordre <%= order.getId() %></h1>
-<table>
+<table border="1">
 	<tr>
 		<th>Antal</th>
 		<th>Topping</th>
