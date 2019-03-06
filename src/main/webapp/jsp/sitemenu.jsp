@@ -19,6 +19,7 @@
         <li class="top-nav-li top-nav-li-right top-nav-li-hover"><a href="/CupCakesProject/FrontController?command=logout">Log ud</a></li>
         <li class="top-nav-li top-nav-li-right top-nav-li-hover"><a href="/CupCakesProject/myorders.jsp">Mine ordre</a></li>
         <li class="top-nav-li top-nav-li-right top-nav-li-hover"><a href="/CupCakesProject/products.jsp">Gå til shop</a></li>
+        <li class="top-nav-li top-nav-li-right top-nav-li-hover"><a href="/CupCakesProject/increasebalance.jsp">Indsæt penge</a></li>
         <li class="top-nav-li top-nav-li-right">Din balance er: <%= user.getBalance()%></li>
         <li class="top-nav-li top-nav-li-right">Hej <%= user.getUsername() + "!"%></li>
             <%

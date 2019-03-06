@@ -39,8 +39,8 @@ public class shoppingCartDAO {
                 String bottom = l.getCup().getCupCakeBottom().getFlavour();
                 int qty = l.getQuantity();
                 float price = l.getCup().getTotalPrice() * l.getQuantity();
-                stmt.executeUpdate("INSERT INTO lineitem VALUES ((SELECT id FROM invoice ORDER BY id DESC LIMIT 1), '" +
-                                    topping + "', '" + bottom + "', " + qty + " , " + price + ");");
+                stmt.executeUpdate("INSERT INTO lineitem VALUES ((SELECT id FROM invoice WHERE username = '" + user.getUsername() 
+                        + "' ORDER BY id DESC LIMIT 1), '" + topping + "', '" + bottom + "', " + qty + " , " + price + ");");
             }
 
         } catch (Exception ex) {

@@ -14,6 +14,12 @@
 
 <jsp:include page='/jsp/sitehead.jsp'></jsp:include>
 <jsp:include page='/jsp/sitemenu.jsp'></jsp:include>   
+<%
+    User user = (User) request.getSession().getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("/CupCakesProject/login.jsp");
+    }
+%>
 
     <!DOCTYPE html>
     <html>
@@ -48,7 +54,7 @@
                 %>
             </select>
             
-            <br><br><input type="number" value="qty" name="qty" min="0" required placeholder="Antal ..."><br><br>
+            <br><br><input type="number" value="qty" name="qty" min="0" max="500" style="width: 60px;"required placeholder="Antal ..."><br><br>
             
             <input type="submit" value="Tilføj til kurv" name="add">
             

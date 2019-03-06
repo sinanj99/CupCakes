@@ -15,6 +15,7 @@
         response.sendRedirect("/CupCakesProject/login.jsp");
     }
 %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +27,17 @@
         <form method="get" action="FrontController">
             <input type="text" name="newbalance" placeholder="Indtast beløb ...">
             <input type="submit" name="add" value="Tilføj">
-            <input type="hidden" name="command" value="/CupCakesProject/products.jsp">
+            <input type="hidden" name="command" value="increasebalance">
+            <%
+                if (request.getSession().getAttribute("balanceResult") != null
+                        && (request.getSession().getAttribute("balanceResult") == "invalidInput" 
+                        || request.getSession().getAttribute("balanceResult") == "negativeInput")) {
+            %>
+            <p style="color: red">Indtast venligst et positivt heltal!</p>
+            <%
+                }
+            request.getSession().removeAttribute("balanceResult");
+            %>
         </form>
     </body>
 </html>
