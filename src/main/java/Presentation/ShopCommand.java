@@ -30,28 +30,22 @@ public class ShopCommand extends Command {
         if (request.getSession().getAttribute("shoppingcart") == null) {
             request.getSession().setAttribute("shoppingcart", new ShoppingCart());
         }
-        
-        if (request.getParameterMap().containsKey("add")) {
-            try {
-                String topping = request.getParameter("topping");
-                String bottom = request.getParameter("bottom");
-                String qty = request.getParameter("qty");
+        try {
+            String topping = request.getParameter("topping");
+            String bottom = request.getParameter("bottom");
+            String qty = request.getParameter("qty");
 
-                Topping top_ = CupCakeDAO.getTopping(topping);
-                Bottom bottom_ = CupCakeDAO.getBottom(bottom);
+            Topping top_ = CupCakeDAO.getTopping(topping);
+            Bottom bottom_ = CupCakeDAO.getBottom(bottom);
 
-                ShoppingCart cart_ = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
-                cart_.getItems().add(new LineItems(new CupCake(top_, bottom_), Integer.parseInt(qty)));
+            ShoppingCart cart_ = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
+            cart_.getItems().add(new LineItems(new CupCake(top_, bottom_), Integer.parseInt(qty)));
 
-                request.getRequestDispatcher("products.jsp").forward(request, response);
+            request.getRequestDispatcher("products.jsp").forward(request, response);
 
-            } catch (Exception ex) {
-                Logger.getLogger(ShopCommand.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (Exception ex) {
+            Logger.getLogger(ShopCommand.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else if(request.getParameterMap().containsKey("checkout"))
-        {
-            
-        }
+
     }
 }

@@ -19,6 +19,8 @@ public class UserDAO {
         String username_ = "";
         String password = "";
         float balance = 0;
+        Enum isAdmin = null;
+        Enum isCustomer = null;
 
         try {
             DBConnector con = new DBConnector();
@@ -33,10 +35,11 @@ public class UserDAO {
                 username_ = rs.getString("username");
                 password = rs.getString("password");
                 balance = rs.getFloat("balance");
+                isAdmin = rs.getObject("isAdmin", Enum.class);
             }
         } catch (Exception e) {
         }
-        return new User(username_, password, balance);
+        return new User(username_, password, balance, isAdmin);
     }
     public static void insertUser(String name, String password, float balance) {
         try {
@@ -44,7 +47,7 @@ public class UserDAO {
             Statement statement = conn.getConnection().createStatement();
             String query
                     = "INSERT INTO user(username, password, balance) "
-                    + "VALUES ('"+ name + "', '" + password + "', " + balance + ");";
+                    + "VALUES ('"+ name + "', '" + password + "', " + balance + ", NO" + ");";
             statement.executeUpdate(query);
 
         } catch (Exception e) {
