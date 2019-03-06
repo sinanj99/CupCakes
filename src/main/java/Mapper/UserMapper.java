@@ -39,7 +39,7 @@ public class UserMapper {
                 String password = resultSet.getString("password");
                 float balance = resultSet.getFloat("balance");
 
-                user = new User(username_, password, balance);
+                //user = new User(username_, password, balance);
             }
             dbc.close();
         } catch (Exception e) {
