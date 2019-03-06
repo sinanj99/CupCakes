@@ -8,6 +8,8 @@ package Presentation;
 import Data.User;
 import Data.UserDAO;
 import Logic.LoginController;
+import Logic.PasswordChecker;
+import Logic.UsernameChecker;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,11 +39,19 @@ public class RegisterCommand extends Command {
                 request.getSession().setAttribute("registerResult", "registerDuplicate");
                 RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
                 rd.forward(request, response);
-            } else {
+            } else if (!PasswordChecker.validate(password)) {
+                request.getSession().setAttribute("registerResult", "registerInvalidPassword");
+                RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+                rd.forward(request, response);
+            } else if(!UsernameChecker.validate(username)) {
+                request.getSession().setAttribute("registerResult", "registerInvalidUsername");
+                RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+                rd.forward(request, response);
+        } else {
                 UserDAO.insertUser(username, password, 0);
                 response.sendRedirect("/CupCakesProject/index.jsp");
             }
-        }
     }
+}
 
 }
