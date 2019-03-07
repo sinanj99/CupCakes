@@ -7,6 +7,13 @@
 <jsp:include page='/jsp/sitemenu.jsp'></jsp:include>
     <!--Body Start-->
     
+    <style type="text/css">
+        h1{
+            background-color: purple;
+        }
+        
+    </style>
+    
     <script type="text/javascript">
         function checkInfo()
         {
