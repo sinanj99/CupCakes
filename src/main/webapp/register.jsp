@@ -33,9 +33,14 @@
             border-style: dashed;
             border-radius: 20px;
             
-            
+            width: 200px;
+            position: absolute;
+            top: 245px;
+            left: 40%;
             
         }
+
+        
         
     </style>
     
