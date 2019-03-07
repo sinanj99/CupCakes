@@ -28,7 +28,7 @@
     </script>
     
     <h1>Register ...</h1>
-    <form onsubmit="return checkInfo()"> <!--action="FrontController" method="get"-->
+    <form onsubmit="return checkInfo()" action="FrontController" method="get">
         <input type="text" name="username" id="uname" placeholder="Brugernavn ..."><br>
         <input type="password" name="password" id="pword" placeholder="Adgangskode ..."><br>
         <input type="submit" name="submit" value="Log ind"><br>
