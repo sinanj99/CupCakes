@@ -13,10 +13,25 @@
             var username = document.getElementById("uname");
             var password = document.getElementById("pword");
             
-            if(username.value == "" || password.value == "")
+            if(username.value.trim() == "")
             {
-                alert("Please fill in all the fiels");
+                alert("The field username can not be left blank");
                 // return false, således at useren ikke bliver sendt videre til næste page
+                return false;
+            }
+            else if(username.value.trim().length<3 || username.value.trim().length>15)
+            {
+                alert("Username is of invalid length! Username must be betweem 3-15 digits");
+                return false;
+            }
+            else if(password.value.trim() == "")
+            {
+                alert("The field password can not be left blank");
+                return false;
+            }
+            else if(password.value.trim().length<8)
+            {
+                alert("Password to short, must contain atleast 8 digits");
                 return false;
             }
             else
@@ -28,7 +43,7 @@
     </script>
     
     <h1>Register ...</h1>
-    <form onsubmit="return checkInfo()" action="FrontController" method="get">
+    <form onsubmit="return checkInfo();" action="FrontController" method="get">
         <input type="text" name="username" id="uname" placeholder="Brugernavn ..."><br>
         <input type="password" name="password" id="pword" placeholder="Adgangskode ..."><br>
         <input type="submit" name="submit" value="Log ind"><br>
