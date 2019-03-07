@@ -10,6 +10,7 @@
     <style type="text/css">
         body{
             background-color: silver;
+            background-image: url("images/cupcakes4.jpg")
         }
         h1{
             background-color: purple;
@@ -19,10 +20,27 @@
             border-top: 8px solid black;
             
             font-size: 60px;
+            text-align: center;
+            
+            margin-top: 0;
         }
         form{
             background-color: brown;
+            padding: 20px;
+            padding-left: 50px;
+            border-color: black;
+            border-width: 5px;
+            border-style: dashed;
+            border-radius: 20px;
+            
+            width: 200px;
+            position: absolute;
+            top: 245px;
+            left: 40%;
+            
         }
+
+        
         
     </style>
     
