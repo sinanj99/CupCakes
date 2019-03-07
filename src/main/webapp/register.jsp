@@ -15,23 +15,55 @@
             
             if(username.value.trim() == "")
             {
-                alert("The field username can not be left blank");
+                username.style.border = "solid 3px red";
+                password.style.border ="";
+                
+                document.getElementById("usernameLength").style.visibility="hidden";
+                document.getElementById("usernameEmpty").style.visibility="visible";
+                
+                document.getElementById("passwordEmpty").style.visibility="hidden";
+                document.getElementById("passwordLength").style.visibility="hidden";
+                
+                
                 // return false, således at useren ikke bliver sendt videre til næste page
                 return false;
             }
             else if(username.value.trim().length<3 || username.value.trim().length>15)
             {
-                alert("Username is of invalid length! Username must be betweem 3-15 digits");
+                username.style.border = "solid 3px red";
+                password.style.border ="";
+                
+                document.getElementById("usernameEmpty").style.visibility="hidden";
+                document.getElementById("usernameLength").style.visibility="visible";
+                
+                document.getElementById("passwordEmpty").style.visibility="hidden";
+                document.getElementById("passwordLength").style.visibility="hidden";
+                
                 return false;
             }
             else if(password.value.trim() == "")
             {
-                alert("The field password can not be left blank");
+                username.style.border = "";
+                password.style.border ="solid 3px red";
+                
+                document.getElementById("usernameEmpty").style.visibility="hidden";
+                document.getElementById("usernameLength").style.visibility="hidden";
+                
+                document.getElementById("passwordEmpty").style.visibility="visible";
+                document.getElementById("passwordLength").style.visibility="hidden";
+                
                 return false;
             }
             else if(password.value.trim().length<8)
             {
-                alert("Password to short, must contain atleast 8 digits");
+                username.style.border = "";
+                password.style.border ="solid 3px red";
+                
+                document.getElementById("usernameEmpty").style.visibility="hidden";
+                document.getElementById("usernameLength").style.visibility="hidden";
+                
+                document.getElementById("passwordEmpty").style.visibility="hidden";
+                document.getElementById("passwordLength").style.visibility="visible";
                 return false;
             }
             else
@@ -44,8 +76,12 @@
     
     <h1>Register ...</h1>
     <form onsubmit="return checkInfo();" action="FrontController" method="get">
-        <input type="text" name="username" id="uname" placeholder="Brugernavn ..."><br>
-        <input type="password" name="password" id="pword" placeholder="Adgangskode ..."><br>
+        <input type="text" name="username" id="uname" placeholder="Brugernavn ...">
+        <label id="usernameEmpty" style="color: red; visibility: hidden;"> Invalid, the field username can not be left blank </label> 
+        <label id="usernameLength" style="color: red; visibility: hidden;"> Invalid, username must contain betweem 3-15 digits </label> <br>
+        <input type="password" name="password" id="pword" placeholder="Adgangskode ...">
+        <label id="passwordEmpty" style="color: red; visibility: hidden;"> Invalid, the field password can not be left blank </label> 
+        <label id="passwordLength" style="color: red; visibility: hidden;"> Invalid, password too short. Must contain atleast 8 digits </label> <br>
         <input type="submit" name="submit" value="Log ind"><br>
         <input type="hidden" name="command" value="register">
     </form>
