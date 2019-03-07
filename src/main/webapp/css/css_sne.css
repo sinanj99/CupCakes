@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07-03-2019, 15:55:38
+    Author     : sinanjasar
+*/
+
+
+
+.formproducts
+{
+    text-align: center;
+    align-content: center;
+    padding: 35px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px white; 
+    border-radius: 5px;
+    margin: 100px;
+    width: 400px;
+    
+}
+
+.productsbackground
+{
+    background-image: url("/CupCakesProject/background.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.heading
+{
+    color: white;
+}
+
+.input
+{
+    width: 173px; 
+    height: 25px;
+    border: 1px; 
+    border-radius: 3px;
+    background-color: grey;
+    color: white;
+}
+
+
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.table
+{
+    color: white;
+    text-align: center;
+    overflow-y:scroll;
+    height: 200px;
+    width: 250px;
+    display:block;
+}

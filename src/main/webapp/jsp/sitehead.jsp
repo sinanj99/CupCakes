@@ -11,5 +11,6 @@
     <title>JSP Page</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/CupCakesProject/css/css.css">
+    <link rel="stylesheet" type="text/css" href="/CupCakesProject/css/css_sne.css">
 </head>
 <body>

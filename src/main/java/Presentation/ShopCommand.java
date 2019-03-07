@@ -40,8 +40,8 @@ public class ShopCommand extends Command {
 
             ShoppingCart cart_ = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
             cart_.getItems().add(new LineItems(new CupCake(top_, bottom_), Integer.parseInt(qty)));
-
-            request.getRequestDispatcher("products.jsp").forward(request, response);
+            response.sendRedirect("products.jsp");
+            //request.getRequestDispatcher("products.jsp").forward(request, response);
 
         } catch (Exception ex) {
             Logger.getLogger(ShopCommand.class.getName()).log(Level.SEVERE, null, ex);
