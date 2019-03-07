@@ -8,8 +8,20 @@
     <!--Body Start-->
     
     <style type="text/css">
+        body{
+            background-color: silver;
+        }
         h1{
             background-color: purple;
+            color: blue;
+            
+            border-bottom: 8px solid black;
+            border-top: 8px solid black;
+            
+            font-size: 60px;
+        }
+        form{
+            background-color: brown;
         }
         
     </style>
