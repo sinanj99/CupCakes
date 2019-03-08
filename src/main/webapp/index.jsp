@@ -5,29 +5,10 @@
 --%>
 <%@page import="Data.User"%>
 <jsp:include page='/jsp/sitehead.jsp'></jsp:include>
+    <link rel="stylesheet" href="/CupCakesProject/css/logincss.css"/>
 <jsp:include page='/jsp/sitemenu.jsp'></jsp:include>
 
 <!--Body Start-->
-
-<style type="text/css">
-        body{
-            background-color: silver;
-            background-image: url("images/cupcakes4.jpg")
-        }
-        h1{
-            background-color: purple;
-            color: blue;
-            
-            border-bottom: 8px solid black;
-            border-top: 8px solid black;
-            
-            font-size: 60px;
-            text-align: center;
-            
-            margin-top: 0;
-        }
-       
-</style> 
 
 <h1>Velkommen ...</h1>
 
