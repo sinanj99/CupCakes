@@ -26,7 +26,7 @@
     <body class="productsbackground">
         <section class="container">
             <form class="formproducts" method="get" action="FrontController">
-                <h1 class="heading">Toppe</h1>
+                <h1 class="heading">Bunde</h1>
                 <select class="input" required name="bottom">
                     <%
                         for (Bottom b : CupCakeDAO.bottoms()) {
@@ -38,7 +38,7 @@
                         }
                     %>
                 </select>
-                <h1 class="heading">Bunde</h1>
+                <h1 class="heading">Toppe</h1>
                 <select class="input" required name="topping">
                     <%
                         for (Topping t : CupCakeDAO.toppings()) {
