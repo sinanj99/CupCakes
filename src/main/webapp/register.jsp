@@ -37,7 +37,15 @@
             position: absolute;
             top: 245px;
             left: 40%;
-            
+        }
+        #usernameEmpty{
+            position: absolute;
+            top: 50px;
+        }
+        #passwordEmpty{
+            position: absolute;
+            top: 130px;
+                
         }
 
         
