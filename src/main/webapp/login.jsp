@@ -39,6 +39,11 @@
             top: 245px;
             left: 40%;
         }
+        p{
+            position: absolute;
+            top: 320px;
+            left: 42%;
+        }
 </style>        
 
 <h1>Login ...</h1>
