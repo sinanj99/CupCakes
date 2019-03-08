@@ -41,7 +41,7 @@ public class CheckoutCommand extends Command {
             float newBalance = user.getBalance() - fullPrice;
             UserDAO.setBalance(user.getUsername(), newBalance);
             user.setBalance(newBalance);
-            request.getRequestDispatcher("/CupCakesProject/confirmation.jsp");
+            response.sendRedirect("confirmation.jsp");
         }
 
     }

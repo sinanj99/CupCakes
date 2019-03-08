@@ -38,7 +38,7 @@
                         }
                     %>
                 </select>
-                <h1 class="heading">Toppe</h1>
+                <br><br><h1 class="heading">Toppe</h1>
                 <select class="input" required name="topping">
                     <%
                         for (Topping t : CupCakeDAO.toppings()) {
@@ -55,7 +55,6 @@
                     <br><br><input type="number" value="qty" name="qty" min="1" max="500" style="width: 60px;"required placeholder="Antal ..."><br><br>
 
                     <input class="input" type="submit" value="Tilføj til kurv" name="add">
-
                 </section>
 
                 <input type="hidden" name="command" value="shop">
@@ -65,11 +64,10 @@
             <form class="formproducts" style="overflow-y: scroll" method="get" action="FrontController">
                 <h1 class="heading">Kurv</h1>
 
-
                 <%            if (request.getSession().getAttribute("shoppingcart") == null) {
 
                 %>
-                <h4 class="heading"> Din kurv er tom! </h4>
+                <h4 style="color: white"> Din kurv er tom! </h4>
                 <% } 
                 %>
                 <%
@@ -78,13 +76,16 @@
                         ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("shoppingcart");
                 %>
 
-                <table class="table" border="1">
+                <table class="table table-striped" style="color: white;" border="1">
+                    <thead>
                     <tr>
                         <th>Top</th>
                         <th>Bund</th>
                         <th>Antal</th>
                         <th>Pris</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <%                for (LineItems lt : cart.getItems()) {
                             float lineItemPrice = (lt.getCup().getCupCakeTopping().getPrice() + lt.getCup().getCupCakeBottom().getPrice()) * lt.getQuantity();
                             fullPrice += lineItemPrice;
@@ -97,7 +98,7 @@
                     </tr>
                     <%  }%>
                     <tr><td colspan="4" align="center">Total pris: <%= fullPrice%> </td></tr>
-
+                    </tbody>
                 </table><br>
 
                 <input class="input" type="submit" value="Placér ordre" name="checkout">
@@ -107,6 +108,6 @@
         <%
             }
         %>
-
+        
     </body>
 </html>

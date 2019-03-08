@@ -7,14 +7,15 @@ body
 }
 
 a{
-    color:inherit;
+    color:inherit!important;
     text-decoration: none;
 }
 
 .top-nav{
   height: 50px;
   width: 100%;
-  background-color: #007bff;
+  background-color: rgba(0,0,0,.4);
+  position: fixed;
 }
 
 .top-nav-ul{

@@ -12,6 +12,7 @@ html, body {
     height: 100%;
 }
 
+
 .formproducts
 {
     text-align: center;
@@ -34,7 +35,7 @@ html, body {
     background-size: cover;
 }
 
-.heading
+h1
 {
     color: white;
 }
@@ -51,16 +52,9 @@ html, body {
 
 
 .container {
+  display: flex;
   justify-content: center;
   height: 100%;
-  display: flex;
   align-items: center;
   
-}
-
-.table
-{
-    color: white;
-    text-align: center;
-    margin: auto;
 }
