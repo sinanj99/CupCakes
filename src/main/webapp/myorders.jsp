@@ -8,7 +8,7 @@
 <%@page import="Data.Order"%>
 <% User user = (User) session.getAttribute("user");%>
 <jsp:include page='/jsp/sitehead.jsp'></jsp:include>
-<jsp:include page='/jsp/sitemenu.jsp'></jsp:include>
+<jsp:include page='/jsp/sitemenu2.jsp'></jsp:include>
 <%if(user == null) response.sendRedirect("/CupCakesProject/login.jsp");%>
 <!--Body Start-->
 

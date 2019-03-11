@@ -21,13 +21,16 @@ public class CupCakeDAO {
     public static ArrayList<Topping> toppings() throws Exception{
         
         ArrayList<Topping> toppingList = new ArrayList();
+        Connection connection = null;
+        
+        try{
         int id = 0;
         String flavour = "";
         float price = 0;
         
-        try{
+        
         DBConnector con = new DBConnector();
-        Connection connection = con.getConnection();
+        connection = con.getConnection();
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT flavour, price FROM topping;");
         
@@ -40,7 +43,6 @@ public class CupCakeDAO {
         }
         catch(Exception e)
         {
-            
         }
             return toppingList;
     }

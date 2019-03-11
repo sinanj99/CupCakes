@@ -24,27 +24,46 @@ public class shoppingCartDAO {
 
     public static void insertOrder(User user, List<LineItems> lineitems) {
         try {
-            
+
             String name = "";
             DBConnector con = new DBConnector();
             Connection connection = con.getConnection();
-            Statement stmt = connection.createStatement(); 
+            Statement stmt = connection.createStatement();
             String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
             stmt.executeUpdate("INSERT INTO invoice(username, dateplaced) VALUES ('" + user.getUsername() + "', '" + timeStamp + "');");
-            
-            
+
             for (LineItems l : lineitems) {
                 String topping = l.getCup().getCupCakeTopping().getFlavour();
                 String bottom = l.getCup().getCupCakeBottom().getFlavour();
                 int qty = l.getQuantity();
                 float price = l.getCup().getTotalPrice() * l.getQuantity();
-                stmt.executeUpdate("INSERT INTO lineitem VALUES ((SELECT id FROM invoice WHERE username = '" + user.getUsername() 
+                stmt.executeUpdate("INSERT INTO lineitem VALUES ((SELECT id FROM invoice WHERE username = '" + user.getUsername()
                         + "' ORDER BY id DESC LIMIT 1), '" + topping + "', '" + bottom + "', " + qty + " , " + price + ");");
             }
 
         } catch (Exception ex) {
-           ex.printStackTrace();
+            ex.printStackTrace();
         }
     }
+
+    public static int getOrder(User user) {
+        int id = 0;
+        try {
+            DBConnector con = new DBConnector();
+            Connection connection = con.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            rs = stmt.executeQuery("SELECT id FROM invoice WHERE username = '" + user.getUsername()
+                    + "' ORDER BY id DESC LIMIT 1;");
+            while (rs.next()) {
+                id = rs.getInt("id");
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return id;
+    }
+
 }

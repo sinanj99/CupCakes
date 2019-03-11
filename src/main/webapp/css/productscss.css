@@ -1,0 +1,132 @@
+html, body {
+    height: 100%;
+}
+/* Form */ 
+.productsbackground
+{
+    background-image: url("/CupCakesProject/background.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.inputproducts
+{
+    text-align: center;
+    width: 173px; 
+    height: 25px;
+    border: 1px; 
+    border-radius: 3px;
+    background-color: grey;
+    color: white;
+}
+
+.buttonproducts
+{
+    margin-top: 20px;
+}
+.formproducts
+{
+
+    text-align: center;
+    padding: 35px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 400px;
+    width: 600px; 
+}
+
+.formproducts h1
+{
+    padding-top: 10px;
+}
+.containerproducts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
+  align-items: center; 
+}
+.qty
+{
+    text-align: center;
+    margin-top: -40px;
+    background-color: grey;
+    color: white;
+    width: 60px;
+}
+/*Each box*/
+.outerbox
+{
+  border: 3px solid white;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  width: 250px;
+  height: 300px;
+}
+/* Inner part of box */ 
+.boxinbox
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.box1
+{
+  flex: 1;
+}
+.box2
+{
+  display: flex;
+  align-items: flex-start;
+  flex: 3;
+  text-align: center;
+  padding: 10px;
+}
+.box3
+{
+  flex: 1;
+}
+
+/* Images (div containing all images)*/
+
+.images
+{
+  z-index: 0;
+  padding-top: 90px;
+  padding-bottom: 50px;
+}
+
+.images h1
+{
+  margin-top: 70px;
+  text-align: center;
+  color: white;
+}
+
+.images h3
+{
+  font-family: 'Lobster Two';
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+.images p
+{
+  color: white;
+  background-color: rgba(0,0,0,0.3);
+  padding: 10px;
+}
+
+/* Container with 3 images horisontally*/
+.container
+{
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  justify-content: center;
+}

@@ -20,11 +20,11 @@
 %>
 <!DOCTYPE html>
 <jsp:include page='/jsp/sitehead.jsp'></jsp:include>
-<jsp:include page='/jsp/sitemenu.jsp'></jsp:include>
+<jsp:include page='/jsp/sitemenu2.jsp'></jsp:include>
 <!--Body Start-->
 
-<h1>Ordre <%= order.getId() %></h1>
-<table border="1">
+<table class="formproducts" style="color: white;" border="1">
+    <h1>Ordre <%= order.getId() %></h1>
 	<tr>
 		<th>Antal</th>
 		<th>Topping</th>
@@ -34,7 +34,7 @@
 <%
     float price = 0;
     for(LineItems li : order.getLineitems()){
-        price += li.getCup().getTotalPrice();
+        price += li.getCup().getTotalPrice() * li.getQuantity();
 %>
 	<tr>
 		<td><%= li.getQuantity() %></td>

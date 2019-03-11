@@ -40,7 +40,7 @@ h1
     color: white;
 }
 
-.input
+.inputproducts
 {
     width: 173px; 
     height: 25px;
@@ -51,7 +51,7 @@ h1
 }
 
 
-.container {
+.containerproducts {
   display: flex;
   justify-content: center;
   height: 100%;

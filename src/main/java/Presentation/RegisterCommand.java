@@ -34,22 +34,25 @@ public class RegisterCommand extends Command {
         } else {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            System.out.println("john");
 
             if (LoginController.duplicate(username)) {
                 request.getSession().setAttribute("registerResult", "registerDuplicate");
-                RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
-                rd.forward(request, response);
+                response.sendRedirect("/CupCakesProject/register.jsp");
+                System.out.println("john1");
             } else if (!PasswordChecker.validate(password)) {
                 request.getSession().setAttribute("registerResult", "registerInvalidPassword");
-                RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
-                rd.forward(request, response);
+                response.sendRedirect("/CupCakesProject/register.jsp");
+                System.out.println("john2");
             } else if(!UsernameChecker.validate(username)) {
                 request.getSession().setAttribute("registerResult", "registerInvalidUsername");
-                RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
-                rd.forward(request, response);
+                response.sendRedirect("/CupCakesProject/register.jsp");
+                System.out.println("john3");
         } else {
+                System.out.println("john4");
                 UserDAO.insertUser(username, password, 0);
-                response.sendRedirect("/CupCakesProject/index.jsp");
+                request.getSession().setAttribute("registerResult", "registerSuccesful");
+                response.sendRedirect("/CupCakesProject/register.jsp");
             }
     }
 }

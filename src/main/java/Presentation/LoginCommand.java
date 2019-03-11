@@ -27,7 +27,9 @@ public class LoginCommand extends Command {
         User user = null;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        
+        System.out.println(username);
+        System.out.println(password);
+        System.out.println(LoginController.isValid(username, password));
         if(LoginController.isValid(username, password)) {
             user = LoginController.getUser(username);
             HttpSession session = request.getSession();
