@@ -52,7 +52,7 @@ public class RegisterCommand extends Command {
                 System.out.println("john4");
                 UserDAO.insertUser(username, password, 0);
                 request.getSession().setAttribute("registerResult", "registerSuccesful");
-                response.sendRedirect("/CupCakesProject/register.jsp");
+                response.sendRedirect("/CupCakesProject/login.jsp");
             }
     }
 }

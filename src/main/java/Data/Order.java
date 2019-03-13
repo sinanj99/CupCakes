@@ -15,7 +15,7 @@ public class Order {
     private final int id;
     private String username;
     private String datePlaced;
-    private ArrayList<LineItems> lineitems = new ArrayList<LineItems>();
+    private ArrayList<LineItems> lineitems = new ArrayList();
 
     public Order(int id, String username, String datePlaced) {
         this.id = id;

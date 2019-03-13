@@ -6,7 +6,6 @@
 <%@page import="Data.User"%>
 <% User user = (User) session.getAttribute("user");%>
 
-<body>
     <div id="nav">
 
         <% if (user != null && user.getIsAdmin() == 1) {
@@ -20,10 +19,10 @@
         } else if (user != null) {
         %>
         <a class="left" href="/CupCakesProject/index.jsp">Front page</a>
-        <a class="right"href="/CupCakesProject/FrontController?command=logout">Log out</a>
-        <a class="right"href="/CupCakesProject/myorders.jsp">My Orders</a>
-        <a class="right"href="/CupCakesProject/products.jsp">Shop</a>
-        <a class="right"href="/CupCakesProject/increasebalance.jsp">Insert money</a>
+        <a class="right" href="/CupCakesProject/FrontController?command=logout">Log out</a>
+        <a class="right" href="/CupCakesProject/myorders.jsp">My Orders</a>
+        <a class="right" href="/CupCakesProject/products.jsp">Shop</a>
+        <a class="right" href="/CupCakesProject/increasebalance.jsp">Insert money</a>
         <p>Your balance is: <%= user.getBalance()%></p>
         <p>Hi <%= user.getUsername()%>!</p>
         <%
@@ -36,5 +35,3 @@
             }
         %>
     </div>
-</body>
-</html>

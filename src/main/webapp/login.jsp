@@ -14,7 +14,7 @@
 %>
 <!--Body Start-->       
 
-<div class="section">
+<div class="section section1">
     <div class="div divlogin">
       <form action="FrontController" method="get">
         <h1>Log In</h1>

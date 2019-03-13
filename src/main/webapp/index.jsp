@@ -9,14 +9,14 @@
         response.sendRedirect("/CupCakesProject/register.jsp");
     }
 %>
-
 <%@page import="Data.User"%>
 <jsp:include page='/jsp/sitehead.jsp'></jsp:include>
 <jsp:include page='/jsp/sitemenu2.jsp'></jsp:include>
-
+<div class="masterdiv background-cupcake">
 <!--Body Start-->
 
 <h1>Velkommen ...</h1>
 
+</div>
 <!--Body End-->
 <jsp:include page='/jsp/sitefoot.jsp'></jsp:include>

@@ -26,7 +26,7 @@
 <body class="productsbackground">
     <section class="containerproducts">
         <form class="formproducts" method="get" action="FrontController">
-            <h1>Bunde</h1>
+            <h1>Bottoms</h1>
             <select class="inputproducts" required name="bottom">
                 <%
                     for (Bottom b : CupCakeDAO.bottoms()) {
@@ -38,7 +38,7 @@
                     }
                 %>
             </select>
-            <h1>Toppe</h1>
+            <h1>Toppings</h1>
             <select class="inputproducts" required name="topping">
                 <%
                     for (Topping t : CupCakeDAO.toppings()) {
@@ -52,9 +52,9 @@
 
             <section>
 
-                <br><br><input type="number" value="qty" name="qty" min="1" max="500" class="qty" required placeholder="Antal ..."><br><br>
+                <br><br><input type="number" value="qty" name="qty" min="1" max="500" class="qty" required placeholder="Amount ..."><br><br>
 
-                <input class="button" type="submit" value="Tilføj" name="add">
+                <input class="button" type="submit" value="Add" name="add">
             </section>
 
             <input type="hidden" name="command" value="shop">
@@ -101,7 +101,7 @@
                 </tbody>
             </table><br>
 
-            <input class="button" type="submit" value="Betal" name="checkout">
+            <input class="button" type="submit" value="Checkout" name="checkout">
             <input type="hidden" name="command" value="checkout">
         </form>
     </section>

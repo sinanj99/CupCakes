@@ -15,21 +15,25 @@
         response.sendRedirect("/CupCakesProject/login.jsp");
     }
 %>
-
-        <h1>Magisk pengegenerator</h1>
-        <form method="get" action="FrontController">
-            <input type="text" name="newbalance" placeholder="Indtast beløb ...">
-            <input type="submit" name="add" value="Tilføj">
-            <input type="hidden" name="command" value="increasebalance">
-            <%
-                if (request.getSession().getAttribute("balanceResult") != null
-                        && (request.getSession().getAttribute("balanceResult") == "invalidInput" 
-                        || request.getSession().getAttribute("balanceResult") == "negativeInput")) {
-            %>
-            <p style="color: red">Indtast venligst et positivt heltal!</p>
-            <%
-                }
-            request.getSession().removeAttribute("balanceResult");
-            %>
-
+<div class="masterdiv background-cupcake">
+    <h1>Magical Money Generator</h1>
+    <form method="get" action="FrontController">
+        <%
+            if (request.getSession().getAttribute("balanceResult") == null) {
+        %>
+        <input class="inputproducts" style="margin-bottom: 20px;" type="text" name="newbalance" placeholder="Insert amount ...">
+        <%
+        } else if (request.getSession().getAttribute("balanceResult") != null
+                && (request.getSession().getAttribute("balanceResult") == "invalidInput"
+                || request.getSession().getAttribute("balanceResult") == "negativeInput")) {
+        %>
+        <input class="inputproductsfail" style="margin-bottom: 20px;" type="text" name="newbalance" placeholder="Positive integers only!">
+        <%
+            session.removeAttribute("balanceResult");
+            }
+        %>
+        <input class="button" type="submit" name="add" value="Add">
+        <input type="hidden" name="command" value="increasebalance">
+    </form>
+</div>
 <jsp:include page='/jsp/sitefoot.jsp'></jsp:include>

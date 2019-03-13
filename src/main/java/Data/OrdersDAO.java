@@ -67,10 +67,6 @@ public class OrdersDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(orderId);
-        System.out.println(username_);
-        System.out.println(datePlaced);
-
         return order;
     }
     

@@ -14,9 +14,9 @@
         response.sendRedirect("/CupCakesProject/login.jsp");
     }
 %>
-
-        <h1>You too broke</h1>
+<div class="masterdiv background-cupcake">
+    <h1>You too broke</h1>
         <a href="/CupCakesProject/increasebalance.jsp">Indsæt penge</a>
         <a href="/CupCakesProject/products.jsp">Tilbage</a>
-   
+</div>
 <jsp:include page='/jsp/sitefoot.jsp'></jsp:include>

@@ -23,19 +23,19 @@ public class AddMoneyComand extends Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         String balance = request.getParameter("newbalance");
+        
         float balance_ = 0;
+        
         try {
             balance_ = Float.parseFloat(balance);
             if(balance_ < 0)
             {
                 request.getSession().setAttribute("balanceResult", "negativeInput");
-                RequestDispatcher rd = request.getRequestDispatcher("increasebalance.jsp");
-                rd.forward(request, response);
+                response.sendRedirect("increasebalance.jsp");
             }
         } catch (NumberFormatException e) {
             request.getSession().setAttribute("balanceResult", "invalidInput");
-            RequestDispatcher rd = request.getRequestDispatcher("increasebalance.jsp");
-            rd.forward(request, response);
+            response.sendRedirect("increasebalance.jsp");
         }
 
         UserDAO.setBalance(user.getUsername(), Float.parseFloat(balance)+user.getBalance());

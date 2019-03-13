@@ -17,11 +17,14 @@
         response.sendRedirect("/CupCakesProject/login.jsp");
     }
 %>
+<div class="masterdiv background-cupcake">
+<ul class="ulorders">
         <%
             for (Order o : OrdersDAO.getAllOrders()) {
         %>
-        <li style="padding-top: 80px; text-align: center;"> <a href="/CupCakesProject/showorder.jsp?id=<%=o.getId()%>"> Ordrenr: <%=o.getId()%> - Dato: <%=o.getDatePlaced()%></a></li>    
-        <%
-            }
-        %>
-
+        <li class="liorders"> <a href="/CupCakesProject/showorder.jsp?id=<%=o.getId()%>"> Ordrenr: <%=o.getId()%> - Dato: <%=o.getDatePlaced()%></a></li>    
+            <%
+                }
+            %>
+</ul> 
+</div>

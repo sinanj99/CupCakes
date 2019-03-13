@@ -13,12 +13,14 @@
 <!--Body Start-->
 
 <h1>Dine ordre: </h1>
-<ul>
+<div class="masterdiv background-cupcake">
+<ul class="ulorders">
     <%
         for(Order o : OrdersDAO.getOrders(user.getUsername())){
     %>
-            <li><a href="/CupCakesProject/showorder.jsp?id=<%=o.getId()%>">Ordrenr: <%=o.getId()%> - Dato: <%=o.getDatePlaced()%></li>
+    <li class="liorders"><a href="/CupCakesProject/showorder.jsp?id=<%=o.getId()%>">Ordrenr: <%=o.getId()%> - Dato: <%=o.getDatePlaced()%></a></li>
     <%}%>
 </ul>
+</div>
 <!--Body End-->
 <jsp:include page='/jsp/sitefoot.jsp'></jsp:include>

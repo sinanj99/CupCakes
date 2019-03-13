@@ -22,7 +22,7 @@
 <jsp:include page='/jsp/sitehead.jsp'></jsp:include>
 <jsp:include page='/jsp/sitemenu2.jsp'></jsp:include>
 <!--Body Start-->
-
+<div class="masterdiv background-cupcake">
 <table class="formproducts" style="color: white;" border="1">
     <h1>Ordre <%= order.getId() %></h1>
 	<tr>
@@ -38,16 +38,16 @@
 %>
 	<tr>
 		<td><%= li.getQuantity() %></td>
-		<td><%=  li.getCup().getCupCakeTopping().getFlavour() %></td>
-		<td><%=  li.getCup().getCupCakeBottom().getFlavour() %></td>
-		<td><%=  li.getCup().getTotalPrice() * li.getQuantity() %></td>
+		<td><%= li.getCup().getCupCakeTopping().getFlavour() %></td>
+		<td><%= li.getCup().getCupCakeBottom().getFlavour() %></td>
+		<td><%= li.getCup().getTotalPrice() * li.getQuantity() %></td>
 	</tr>
 <%}%>
         <tr>
             <td colspan="4">Totalpris: <%= price %></td>
         </tr>
 </table>
-
+</div>
 
 <!--Body End-->
 <jsp:include page='/jsp/sitefoot.jsp'></jsp:include>

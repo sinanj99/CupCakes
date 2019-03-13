@@ -27,14 +27,6 @@
                 background-image: url('images/registration.jpg');
                 background-size: cover;
             }
-
-            body
-            {
-                background-image: url('images/registration.jpg');
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-            }
             
         </style>
 
