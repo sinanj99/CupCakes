@@ -137,10 +137,10 @@ form
 .inputfail
 {
   text-align: center;
-  border: 3px solid red;
-  border-radius: 10px;
+  border-radius: 4px;
   width: 40%;
   margin-bottom: 30px;
+  height: 40px;
   
 }
 

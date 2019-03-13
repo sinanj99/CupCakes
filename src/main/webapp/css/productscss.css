@@ -13,8 +13,10 @@ html, body {
 .inputproducts
 {
     text-align: center;
-    width: 173px; 
+    width: 173px;
     height: 25px;
+    min-height: 25px;
+    max-height: 25px;
     border: 1px; 
     border-radius: 3px;
     background-color: grey;

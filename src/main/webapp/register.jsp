@@ -35,7 +35,7 @@
 
             if (username.value.trim() == "")
             {
-                username.style.border = "solid 3px red";
+                username.style.border = "solid 2px red";
                 password.style.border = "";
 
                 document.getElementById("usernameLength").style.visibility = "hidden";
@@ -49,7 +49,7 @@
                 return false;
             } else if (username.value.trim().length < 3 || username.value.trim().length > 15)
             {
-                username.style.border = "solid 3px red";
+                username.style.border = "solid 2px red";
                 password.style.border = "";
 
                 document.getElementById("usernameEmpty").style.visibility = "hidden";
@@ -62,7 +62,7 @@
             } else if (password.value.trim() == "")
             {
                 username.style.border = "";
-                password.style.border = "solid 3px red";
+                password.style.border = "solid 2px red";
 
                 document.getElementById("usernameEmpty").style.visibility = "hidden";
                 document.getElementById("usernameLength").style.visibility = "hidden";
@@ -74,7 +74,7 @@
             } else if (password.value.trim().length < 8)
             {
                 username.style.border = "";
-                password.style.border = "solid 3px red";
+                password.style.border = "solid 2px red";
 
                 document.getElementById("usernameEmpty").style.visibility = "hidden";
                 document.getElementById("usernameLength").style.visibility = "hidden";
