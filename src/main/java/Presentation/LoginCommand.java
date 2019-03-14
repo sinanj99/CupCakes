@@ -17,7 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Receives input from login.jsp, validates this input with the use of
+ * methods from LoginController, and eventually,
+ * if the input is valid, creates a session with the user and forwards user to index.jsp. 
+ * If the input is invalid an error-message is forwarded to login.jsp.
  * @author sinanjasar
  */
 public class LoginCommand extends Command {

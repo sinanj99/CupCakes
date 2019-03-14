@@ -18,7 +18,7 @@
     <%
         for(Order o : OrdersDAO.getOrders(user.getUsername())){
     %>
-    <li class="liorders"><a href="/CupCakesProject/showorder.jsp?id=<%=o.getId()%>">Ordrenr: <%=o.getId()%> - Dato: <%=o.getDatePlaced()%></a></li>
+    <li class="liorders"><a href="/CupCakesProject/showorder.jsp?id=<%=o.getId()%>">Ordernr: <%=o.getId()%> - Date: <%=o.getDatePlaced()%></a></li>
     <%}%>
 </ul>
 </div>

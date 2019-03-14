@@ -14,6 +14,11 @@ import java.sql.Statement;
  * @author sinanjasar
  */
 public class UserDAO {
+    /**
+     * Selects and returns a specific user-object from the 'user'-table in the database.
+     * @param username
+     * @return a desired User
+     */
     public static User getUser(String username) {
 
         String username_ = "";
@@ -41,6 +46,12 @@ public class UserDAO {
         }
         return new User(username_, password, balance, isAdmin);
     }
+    /**
+     * Inserts a new user into user-tabel with the specified data.
+     * @param name name of the user
+     * @param password password of the user
+     * @param balance balance of the user
+     */
     public static void insertUser(String name, String password, float balance) {
         try {
             DBConnector conn = new DBConnector();
@@ -53,6 +64,11 @@ public class UserDAO {
         } catch (Exception e) {
         }
     }
+    /**
+     * Updates balance of a user with the specified name to the new, specified balance.
+     * @param username username of the user
+     * @param balance new balance of the user
+     */
     public static void setBalance(String username, float balance)
     {
         try {

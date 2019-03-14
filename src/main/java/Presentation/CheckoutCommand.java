@@ -16,7 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Receives request from products.jsp, gets shoppingcart-session,
+ * calculates lineitem-price, checks if balance is sufficient, if yes 
+ * withdraws price from balance, inserts order in database and forwards to confirmation.jsp, 
+ * if no forwards to insufficient_funds.jsp.
  * @author sinanjasar
  */
 public class CheckoutCommand extends Command {

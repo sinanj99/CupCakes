@@ -11,15 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author Kasper Jeppesen & sinanjasar
+ * @author Kasper Jeppesen
  */
 public class shoppingCartDAO {
 

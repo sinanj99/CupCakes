@@ -18,7 +18,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Receives input from registration.jsp, validates this input with the use of
+ * methods from LoginController, PasswordChecker and UsernameChecker, and eventually,
+ * if the input is valid, inserts user with given input to database 
+ * and redirects to login.jsp. If the input is invalid an error-message is forwarded
+ * to registration.jsp.
+ * 
  * @author Obaydah Mohamad
  */
 public class RegisterCommand extends Command {

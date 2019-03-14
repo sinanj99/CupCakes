@@ -19,7 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * Receives request from products.jsp, creates shoppingcart session,
+ * Topping, Bottom, LineItem, and ShoppingCart object and adds LineItem to ShoppingCart.
+ * Forwards user to products.jsp where cart is displayed on screen.
  * @author sinanjasar
  */
 public class ShopCommand extends Command {

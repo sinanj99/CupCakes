@@ -7,7 +7,6 @@ package Data;
 
 import java.util.ArrayList;
 import DB.DBConnector;
-import DB.DataBaseConnector;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -18,6 +17,11 @@ import java.sql.Statement;
  */
 public class CupCakeDAO {
     
+    /**
+     * Selects and returns all topping-objects from the 'topping'-table in the database.
+     * @return ArrayList of topping-objects from database
+     * @throws Exception 
+     */
     public static ArrayList<Topping> toppings() throws Exception{
         
         ArrayList<Topping> toppingList = new ArrayList();
@@ -43,10 +47,15 @@ public class CupCakeDAO {
         }
         catch(Exception e)
         {
+            e.printStackTrace();
         }
             return toppingList;
     }
-    
+    /**
+     * Selects and returns all bottom-objects from the 'bottoms'-table in the database.
+     * @return ArrayList of bottom-objects from database
+     * @throws Exception 
+     */
     public static ArrayList<Bottom> bottoms() throws Exception{
         ArrayList<Bottom> bottomList = new ArrayList();
         int id = 0;
@@ -71,6 +80,12 @@ public class CupCakeDAO {
         }
             return bottomList;
     }
+    /**
+     * Selects and returns a specific topping-object from the 'topping'-table in the database.
+     * @param flavour the flavour of the topping to be returned
+     * @return a desired topping
+     * @throws Exception 
+     */
     public static Topping getTopping(String flavour) throws Exception{
         Topping topping = null;
         for(Topping t : toppings())
@@ -82,6 +97,12 @@ public class CupCakeDAO {
         }
         return topping;
     }
+    /**
+     * Selects and returns a specific bottom-object from the 'bottom'-table in the database.
+     * @param flavour the flavour of the topping to be returned
+     * @return a desired topping
+     * @throws Exception 
+     */
     public static Bottom getBottom(String flavour) throws Exception{
         Bottom bottom = null;
         for(Bottom b : bottoms())

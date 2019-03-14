@@ -4,7 +4,10 @@
 package Data;
 
 /**
- *
+ * Mirrors the user-table in the database, and is primarily instantiated in the
+ * user mappers where a given user is returned and forwarded to the logic-layer
+ * where a user is validated. Is also instantiated in presentation-layer when it is checked
+ * if there is already a user in the session.
  * @author sinanjasar
  */
 

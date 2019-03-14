@@ -6,7 +6,7 @@
 package Logic;
 
 /**
- *
+ * Purpose is to call methods from Mappers that deals with product-related stuff.
  * @author Obaydah Mohamad
  */
 public class ProductController {

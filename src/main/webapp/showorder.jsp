@@ -26,10 +26,10 @@
 <table class="formproducts" style="color: white;" border="1">
     <h1>Ordre <%= order.getId() %></h1>
 	<tr>
-		<th>Antal</th>
+		<th>Amount</th>
 		<th>Topping</th>
 		<th>Bottom</th>
-		<th>Pris</th>
+		<th>Price</th>
 	</tr>
 <%
     float price = 0;
@@ -44,7 +44,7 @@
 	</tr>
 <%}%>
         <tr>
-            <td colspan="4">Totalpris: <%= price %></td>
+            <td colspan="4">Total price: <%= price %></td>
         </tr>
 </table>
 </div>
