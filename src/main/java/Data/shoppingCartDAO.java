@@ -8,6 +8,7 @@ package Data;
 import DB.DBConnector;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -23,11 +24,15 @@ import java.util.logging.Logger;
 public class shoppingCartDAO {
 
     public static void insertOrder(User user, List<LineItems> lineitems) {
+
+        Connection connection = null;
+
         try {
 
             String name = "";
             DBConnector con = new DBConnector();
-            Connection connection = con.getConnection();
+            connection = con.getConnection();
+            connection.setAutoCommit(false);
             Statement stmt = connection.createStatement();
             String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
@@ -41,8 +46,13 @@ public class shoppingCartDAO {
                 stmt.executeUpdate("INSERT INTO lineitem VALUES ((SELECT id FROM invoice WHERE username = '" + user.getUsername()
                         + "' ORDER BY id DESC LIMIT 1), '" + topping + "', '" + bottom + "', " + qty + " , " + price + ");");
             }
-
+            connection.commit();
         } catch (Exception ex) {
+            try {
+                connection.rollback();
+            } catch (SQLException ex1) {
+                ex1.printStackTrace();
+            }
             ex.printStackTrace();
         }
     }
