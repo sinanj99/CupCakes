@@ -20,7 +20,7 @@ public class CupCakeDAO {
     /**
      * Selects and returns all topping-objects from the 'topping'-table in the database.
      * @return ArrayList of topping-objects from database
-     * @throws Exception 
+     * @throws Exception if a connection or SQL error occurs
      */
     public static ArrayList<Topping> toppings() throws Exception{
         
@@ -54,7 +54,7 @@ public class CupCakeDAO {
     /**
      * Selects and returns all bottom-objects from the 'bottoms'-table in the database.
      * @return ArrayList of bottom-objects from database
-     * @throws Exception 
+     * @throws Exception if a connection or SQL error occurs
      */
     public static ArrayList<Bottom> bottoms() throws Exception{
         ArrayList<Bottom> bottomList = new ArrayList();
@@ -82,9 +82,9 @@ public class CupCakeDAO {
     }
     /**
      * Selects and returns a specific topping-object from the 'topping'-table in the database.
-     * @param flavour the flavour of the topping to be returned
-     * @return a desired topping
-     * @throws Exception 
+     * @param flavour used in WHERE clause to find topping
+     * @return topping defined by the flavour
+     * @throws Exception if a connection or SQL error occurs
      */
     public static Topping getTopping(String flavour) throws Exception{
         Topping topping = null;
@@ -99,9 +99,9 @@ public class CupCakeDAO {
     }
     /**
      * Selects and returns a specific bottom-object from the 'bottom'-table in the database.
-     * @param flavour the flavour of the topping to be returned
-     * @return a desired topping
-     * @throws Exception 
+     * @param flavour used in WHERE clause to find bottom
+     * @return bottom defined by the flavour
+     * @throws Exception if a connection or SQL error occurs
      */
     public static Bottom getBottom(String flavour) throws Exception{
         Bottom bottom = null;

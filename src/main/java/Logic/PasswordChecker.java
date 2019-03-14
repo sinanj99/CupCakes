@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
     /**
      * Checks if password of new user matches valid password-regex.
-     * @param password password of new user
+     * @param password password of new user which is matched with regex.
      * @return boolean
      */
     public static boolean validate(String password) {

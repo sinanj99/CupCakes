@@ -34,7 +34,8 @@ public abstract class Command {
      * Searches request for the value of parameter 'command', then checks the 
      * commands-map for a key with the same value and returns the value for the key.
      * @param request servlet request 
-     * @return the correct Command
+     * @return the correct Command; the value of the key which is the value of
+     * the command-parameter
      */
     
     public static Command from(HttpServletRequest request) {

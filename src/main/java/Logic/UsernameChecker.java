@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
         Pattern.compile("^[a-z0-9_-]{3,15}$", Pattern.CASE_INSENSITIVE);
     /**
      * Checks if username of new user matches valid username-regex.
-     * @param username username of new user
+     * @param username username of user which is matched with regex. 
      * @return boolean
      */
     public static boolean validate(String username) {

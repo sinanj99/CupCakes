@@ -10,7 +10,7 @@ import Data.UserDAO;
 
 /**
  * Is called from LoginCommand and RegistrationCommand which forwards user-input
- * for this class to validate.
+ * for this class to validate. Purpose is also to call methods from mappers related to users. 
  * @author sinanjasar
  */
 public class LoginController {

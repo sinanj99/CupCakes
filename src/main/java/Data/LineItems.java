@@ -6,8 +6,10 @@
 package Data;
 
 /**
- *
- * @author Kasper Jeppesen
+ * Mirrors the lineitem-table in the database, and is instantiated in the
+ * shoppingCart- and Order-mappers where a lineitem is returned and forwarded to the presentation-layer
+ * where it is used to create an order/shoppingcart.
+ * @author Younes
  */
 public class LineItems
 {

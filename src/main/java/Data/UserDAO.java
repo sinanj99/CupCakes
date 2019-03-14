@@ -16,8 +16,8 @@ import java.sql.Statement;
 public class UserDAO {
     /**
      * Selects and returns a specific user-object from the 'user'-table in the database.
-     * @param username
-     * @return a desired User
+     * @param username is used in the WHERE clause to find a specified user
+     * @return a specified user defined by the username
      */
     public static User getUser(String username) {
 
@@ -48,9 +48,9 @@ public class UserDAO {
     }
     /**
      * Inserts a new user into user-tabel with the specified data.
-     * @param name name of the user
-     * @param password password of the user
-     * @param balance balance of the user
+     * @param name name of the user to be inserted
+     * @param password password of the user to be inserted 
+     * @param balance balance of the user to be inserted
      */
     public static void insertUser(String name, String password, float balance) {
         try {
@@ -66,8 +66,8 @@ public class UserDAO {
     }
     /**
      * Updates balance of a user with the specified name to the new, specified balance.
-     * @param username username of the user
-     * @param balance new balance of the user
+     * @param username username of the user whose balance needs update
+     * @param balance new balance of the user 
      */
     public static void setBalance(String username, float balance)
     {
