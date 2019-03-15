@@ -34,7 +34,7 @@ public class LoginController {
     }
     /**
      * Calls UserDAO().getUser(username)
-     * @param username param of called method
+     * @param username param of called method.
      * @return a User
      */
     public static User getUser(String username) {

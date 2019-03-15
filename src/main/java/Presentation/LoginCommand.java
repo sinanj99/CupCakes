@@ -6,10 +6,8 @@
 package Presentation;
 
 import Data.User;
-import Data.UserDAO;
 import Logic.LoginController;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -43,8 +41,6 @@ public class LoginCommand extends Command {
             
             RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
             rd.forward(request, response);
-            
-            //response.sendRedirect("/CupCakesProject/login.jsp");
         }
     }
 

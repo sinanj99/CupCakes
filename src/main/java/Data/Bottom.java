@@ -6,7 +6,9 @@
 package Data;
 
 /**
- *
+ * Mirrors the bottom-table in the database, and is primarily instantiated in the
+ * CupCake mappers where a cupcake is returned and forwarded to the presentation-layer
+ * where the Shop- and CheckoutCommand use it to create LineItems and shoppingcarts
  * @author Younes
  */
 public class Bottom {

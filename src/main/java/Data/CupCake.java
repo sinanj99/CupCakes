@@ -6,7 +6,9 @@
 package Data;
 
 /**
- *
+ * Consists of topping, bottom and total price of the topping and bottom combined.
+ * Is used in ShopCommand where a LineItem object is created which consists of a Cupcake object
+ * and quantity.
  * @author Younes
  */
 public class CupCake {

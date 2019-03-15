@@ -8,7 +8,7 @@ package Data;
 import java.util.ArrayList;
 
 /**
- *
+ * Mirrors the invoice table in the database.
  * @author Obaydah Mohamad
  */
 public class Order {

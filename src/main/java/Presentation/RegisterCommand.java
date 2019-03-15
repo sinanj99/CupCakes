@@ -39,22 +39,22 @@ public class RegisterCommand extends Command {
         } else {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            System.out.println("john");
+            
 
             if (LoginController.duplicate(username)) {
                 request.getSession().setAttribute("registerResult", "registerDuplicate");
                 response.sendRedirect("/CupCakesProject/register.jsp");
-                System.out.println("john1");
+                
             } else if (!PasswordChecker.validate(password)) {
                 request.getSession().setAttribute("registerResult", "registerInvalidPassword");
                 response.sendRedirect("/CupCakesProject/register.jsp");
-                System.out.println("john2");
+                
             } else if(!UsernameChecker.validate(username)) {
                 request.getSession().setAttribute("registerResult", "registerInvalidUsername");
                 response.sendRedirect("/CupCakesProject/register.jsp");
-                System.out.println("john3");
+                
         } else {
-                System.out.println("john4");
+                
                 UserDAO.insertUser(username, password, 0);
                 request.getSession().setAttribute("registerResult", "registerSuccesful");
                 response.sendRedirect("/CupCakesProject/login.jsp");

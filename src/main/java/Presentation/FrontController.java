@@ -5,8 +5,6 @@
  */
 package Presentation;
 
-import Data.User;
-import Logic.LoginController;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

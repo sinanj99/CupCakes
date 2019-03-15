@@ -8,7 +8,8 @@ package Data;
 import java.util.ArrayList;
 
 /**
- *
+ * Instantiated in ShopCommand where a session with a shopping cart is created,
+ * forwarded to products.jsp and displayed to the customer. 
  * @author Kasper Jeppesen
  */
 public class ShoppingCart
