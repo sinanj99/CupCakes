@@ -8,7 +8,8 @@ package Data;
 import java.util.ArrayList;
 
 /**
- * Mirrors the invoice table in the database.
+ * Mirrors the invoice table in the database. Is instantiated in the presentation layer
+ * in jsp files that show orders to admins and customers, and the database layer.
  * @author Obaydah Mohamad
  */
 public class Order {
