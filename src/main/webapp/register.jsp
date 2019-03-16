@@ -16,16 +16,7 @@
 
     <!--Body Start-->
 
-    <style type="text/css">
-        #usernameEmpty{
-            position: absolute;
-            top: 50px;
-        }
-        #passwordEmpty{
-            position: absolute;
-            top: 130px;
-        }
-    </style>
+    
 
     <script type="text/javascript">
         function checkInfo()
@@ -43,6 +34,7 @@
 
                 document.getElementById("passwordEmpty").style.visibility = "hidden";
                 document.getElementById("passwordLength").style.visibility = "hidden";
+                
 
 
                 // return false, således at useren ikke bliver sendt videre til næste page
@@ -59,7 +51,8 @@
                 document.getElementById("passwordLength").style.visibility = "hidden";
 
                 return false;
-            } else if (password.value.trim() == "")
+            }
+            else if (password.value.trim() == "")
             {
                 username.style.border = "";
                 password.style.border = "solid 2px red";
@@ -108,7 +101,7 @@
                 <p>Fill Out The Form Below To Sign Up!</p>
             <%
                 if (request.getSession().getAttribute("registerResult") == null
-                    || request.getSession().getAttribute("registerResult") != "registerDuplicate")
+                   && request.getSession().getAttribute("registerResult") != "registerDuplicate")
                 {
             %>
             <input class="input" type="text" name="username" id="uname" placeholder="Username">
@@ -121,6 +114,8 @@
                     && request.getSession().getAttribute("registerResult").equals("registerInvalidUsername")) {
             %>
             <input class="inputfail" type="text" name="username" id="uname" placeholder="Invalid username!">
+            <label id="invalidusername" style="color: red; visibility: visbiel;"> Invalid username, cant hold spaces and other specail characters 
+             other than - or _ </label> 
             <% } %>
             
             <label id="usernameEmpty" style="color: red; visibility: hidden;"> Invalid, the field username can not be left blank </label> 
@@ -135,8 +130,9 @@
             } else if (request.getSession().getAttribute("registerResult") != null
                     && request.getSession().getAttribute("registerResult").equals("registerInvalidPassword")) {
             %>
-            
-            <input class="inputfail" type="password" name="password" id="pword" placeholder="Invalid password!">
+            <input class="input" type="text" name="username" id="uname" placeholder="Username">
+            <input class="inputfail" type="password" name="password" id="pword" placeholder="Invalid password! ">
+            <label id="invalidpass" style="color: red; visibility: visible;"> Invalid password, must contain atleast 1 digit and no spaces </label>
             <% } %>
             
             <label id="passwordEmpty" style="color: red; visibility: hidden;"> Invalid, the field password can not be left blank </label> 
