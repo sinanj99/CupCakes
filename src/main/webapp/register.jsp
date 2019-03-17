@@ -95,41 +95,50 @@
     <div class="section section2">
         <div class="div">
             <form onsubmit="return checkInfo();" action="FrontController" method="get">
+                <% System.out.println(session.getAttribute("registerResult")); %>
+                
             <% if(request.getSession().getAttribute("registerResult") != "registerSuccesful")
             {%>
                 <h1>Not Already A Member?</h1>
                 <p>Fill Out The Form Below To Sign Up!</p>
             <%
                 if (request.getSession().getAttribute("registerResult") == null
-                   && request.getSession().getAttribute("registerResult") != "registerDuplicate")
+                   && request.getSession().getAttribute("registerResult") != "registerDuplicate" && 
+                        request.getSession().getAttribute("registerResult") != "registerInvalidUsername")
                 {
             %>
+            <% System.out.println("sne99"); %>
             <input class="input" type="text" name="username" id="uname" placeholder="Username">
             <%
                 } else if (request.getSession().getAttribute("registerResult") != null
                         && request.getSession().getAttribute("registerResult") == "registerDuplicate") {
             %>
+            <% System.out.println("sne0"); %>
             <input class="inputfail" type="text" name="username" id="uname" placeholder="Username is taken!">
+            
             <% } else if (request.getSession().getAttribute("registerResult") != null
                     && request.getSession().getAttribute("registerResult").equals("registerInvalidUsername")) {
             %>
             <input class="inputfail" type="text" name="username" id="uname" placeholder="Invalid username!">
-            <label id="invalidusername" style="color: red; visibility: visbiel;"> Invalid username, cant hold spaces and other specail characters 
+            <% System.out.println("sne"); %>
+            <label id="invalidusername" style="color: red; visibility: visible;"> Invalid username, cant hold spaces and other specail characters 
              other than - or _ </label> 
             <% } %>
             
             <label id="usernameEmpty" style="color: red; visibility: hidden;"> Invalid, the field username can not be left blank </label> 
             <label id="usernameLength" style="color: red; visibility: hidden;"> Invalid, username must contain between 3-15 characters </label>
-            
+           
             <%
             if (request.getSession().getAttribute("registerResult") == null
                     || request.getSession().getAttribute("registerResult") != "registerInvalidPassword") {
             %>
-             <input class="input" type="password" name="password" id="pword" placeholder="Password">
+            <% System.out.println("sne4"); %> 
+            <input class="input" type="password" name="password" id="pword" placeholder="Password">
             <%
             } else if (request.getSession().getAttribute("registerResult") != null
                     && request.getSession().getAttribute("registerResult").equals("registerInvalidPassword")) {
             %>
+            <% System.out.println("sne2"); %>
             <input class="input" type="text" name="username" id="uname" placeholder="Username">
             <input class="inputfail" type="password" name="password" id="pword" placeholder="Invalid password! ">
             <label id="invalidpass" style="color: red; visibility: visible;"> Invalid password, must contain atleast 1 digit and no spaces </label>

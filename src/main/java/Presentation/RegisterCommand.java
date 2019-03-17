@@ -11,7 +11,6 @@ import Logic.LoginController;
 import Logic.PasswordChecker;
 import Logic.UsernameChecker;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,7 +47,6 @@ public class RegisterCommand extends Command {
             } else if (!PasswordChecker.validate(password)) {
                 request.getSession().setAttribute("registerResult", "registerInvalidPassword");
                 response.sendRedirect("/CupCakesProject/register.jsp");
-                
             } else if(!UsernameChecker.validate(username)) {
                 request.getSession().setAttribute("registerResult", "registerInvalidUsername");
                 response.sendRedirect("/CupCakesProject/register.jsp");
